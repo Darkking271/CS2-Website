@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Random.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.literal {color: #0000e6}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/avoytovi/Desktop/CS2F16/src/utilities/Random.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * Utility class to generate random colors and points</span>
+ 3 <span class="comment"> */</span>
+ 4 
+ 5 <span class="literal">package</span> utilities;
+ 6 
+ 7 <span class="literal">import</span> java.awt.Color;
+ 8 <span class="literal">import</span> java.awt.Point;
+ 9 <span class="comment">//import java.awt.geom.Point2D;</span>
+10 
+11 <span class="comment">/**</span>
+12 <span class="comment"> *</span>
+13 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+14  <span class="comment">*/</span>
+15 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Random</span> 
+16 {
+17     <span class="comment">/**</span> <span class="ST0">@return</span> <span class="comment">random</span> <span class="comment">color</span><span class="comment"> *</span><span class="comment">*/</span>
+18     <span class="literal">static</span> <span class="literal">public</span> Color <span class="ST2">color</span>()
+19     {
+20         <span class="literal">int</span> rv = (<span class="literal">int</span>)(Math.<span class="ST3">random</span>() * 256);
+21         <span class="literal">int</span> gv = (<span class="literal">int</span>)(Math.<span class="ST3">random</span>() * 256);
+22         <span class="literal">int</span> bv = (<span class="literal">int</span>)(Math.<span class="ST3">random</span>() * 256);
+23         <span class="literal">return</span> <span class="literal">new</span> Color(rv, gv, bv);
+24         
+25     }<span class="comment">//END Color</span>
+26     
+27     <span class="comment">/**</span> <span class="ST0">@return</span> <span class="comment">random</span><span class="comment"> *</span><span class="comment">*/</span>
+28     <span class="literal">public</span> <span class="literal">static</span> Point <span class="ST2">point</span>(<span class="literal">int</span> x, <span class="literal">int</span> y)
+29     {
+30         <span class="literal">int</span> a = <span class="ST3">number</span>(x);
+31         <span class="literal">int</span> b = <span class="ST3">number</span>(y);
+32         <span class="literal">return</span> <span class="literal">new</span> Point(a, b);
+33         
+34     }<span class="comment">//END Point</span>
+35     
+36     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">number</span>(<span class="literal">int</span> x)
+37     {
+38         <span class="literal">return</span> (<span class="literal">int</span>) Math.<span class="ST3">random</span>() * x;
+39         
+40     }<span class="comment">//END number</span>
+41     
+42 }<span class="comment">//END Random</span>
+43 
+</pre></body>
+</html>
+

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Color Tree Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active yellow darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="ColorTree_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="ColorTree_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Color Tree Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * This program inplements the Binary Tree class to create a binary search tree</span>
+  3 <span class="comment"> * for colors</span>
+  4 <span class="comment"> */</span>
+  5 <span class="literal">package</span> trees;
+  6 
+  7 <span class="literal">import</span> trees.BinaryTree;
+  8 <span class="literal">import</span> trees.BinaryTreeCreationException;
+  9 
+ 10 <span class="comment">/**</span>
+ 11 <span class="comment"> *</span>
+ 12 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 13  <span class="comment">*/</span>
+ 14 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">BinaryColorTreeTester</span> 
+ 15 {
+ 16     <span class="comment">/**</span>
+ 17 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 18      <span class="comment">*/</span>
+ 19     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+ 20     <span class="literal">throws</span> BinaryTreeCreationException
+ 21     {
+ 22         <span class="ST3">testLR</span>(); <span class="comment">//test deterministic insertion +</span>
+ 23         <span class="ST3">testST</span>(); <span class="comment">//test bst insertion +</span>
+ 24         <span class="ST3">testND</span>(); <span class="comment">//test nondeterministic insertion +</span>
+ 25         <span class="ST3">testND</span>(); <span class="comment">//test nondeterministic insertion +</span>
+ 26     }<span class="comment">//END MAIN</span>
+ 27 
+ 28     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testLR</span>() 
+ 29     {
+ 30         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test LR ...</span><span class="string">&quot;</span>);
+ 31         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+ 32         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+ 33         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the tree directionally ...</span><span class="string">&quot;</span>);
+ 34         <span class="literal">try</span>
+ 35         {
+ 36             t.addLR(<span class="string">&quot;</span><span class="string">Red</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;&quot;</span>);
+ 37             t.addLR(<span class="string">&quot;</span><span class="string">Blue</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">l</span><span class="string">&quot;</span>);
+ 38             t.addLR(<span class="string">&quot;</span><span class="string">Green</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lr</span><span class="string">&quot;</span>);
+ 39             t.addLR(<span class="string">&quot;</span><span class="string">Black</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">ll</span><span class="string">&quot;</span>);
+ 40             t.addLR(<span class="string">&quot;</span><span class="string">White</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">r</span><span class="string">&quot;</span>);
+ 41             t.addLR(<span class="string">&quot;</span><span class="string">Purple</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrr</span><span class="string">&quot;</span>);
+ 42             t.addLR(<span class="string">&quot;</span><span class="string">Yellow</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">rr</span><span class="string">&quot;</span>);
+ 43             t.addLR(<span class="string">&quot;</span><span class="string">Orange</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrrl</span><span class="string">&quot;</span>);
+ 44             t.addLR(<span class="string">&quot;</span><span class="string">Indigo</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrrll</span><span class="string">&quot;</span>);
+ 45             t.addLR(<span class="string">&quot;</span><span class="string">Aqua</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lll</span><span class="string">&quot;</span>);
+ 46             t.addLR(<span class="string">&quot;</span><span class="string">Tangerine</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">rl</span><span class="string">&quot;</span>);
+ 47             t.addLR(<span class="string">&quot;</span><span class="string">Pink</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrrlr</span><span class="string">&quot;</span>);
+ 48             t.addLR(<span class="string">&quot;</span><span class="string">Ghostwhite</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrl</span><span class="string">&quot;</span>);
+ 49             t.addLR(<span class="string">&quot;</span><span class="string">Gray</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrlr</span><span class="string">&quot;</span>);
+ 50             t.addLR(<span class="string">&quot;</span><span class="string">Brown</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrll</span><span class="string">&quot;</span>);
+ 51             t.addLR(<span class="string">&quot;</span><span class="string">Gainsboro</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lrllr</span><span class="string">&quot;</span>);
+ 52         }
+ 53         <span class="literal">catch</span> (BinaryTreeCreationException ex)
+ 54         {
+ 55             ex.printStackTrace();
+ 56         }
+ 57         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+ 58         t.preorder();
+ 59         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+ 60         t.inorder();
+ 61         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+ 62         t.postorder();
+ 63         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+ 64         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 65     }<span class="comment">//END testLR</span>
+ 66 
+ 67     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testST</span>() <span class="literal">throws</span> BinaryTreeCreationException
+ 68     {
+ 69         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test ST ... </span><span class="string">&quot;</span>);
+ 70         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+ 71         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+ 72         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the binary search tree ...</span><span class="string">&quot;</span>);
+ 73         t.addST(<span class="string">&quot;</span><span class="string">Red</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 74         t.addST(<span class="string">&quot;</span><span class="string">Blue</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 75         t.addST(<span class="string">&quot;</span><span class="string">Green</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 76         t.addST(<span class="string">&quot;</span><span class="string">Black</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 77         t.addST(<span class="string">&quot;</span><span class="string">White</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 78         t.addST(<span class="string">&quot;</span><span class="string">Purple</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 79         t.addST(<span class="string">&quot;</span><span class="string">Yellow</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 80         t.addST(<span class="string">&quot;</span><span class="string">Orange</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 81         t.addST(<span class="string">&quot;</span><span class="string">Indigo</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 82         t.addST(<span class="string">&quot;</span><span class="string">Aqua</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 83         t.addST(<span class="string">&quot;</span><span class="string">Tangerine</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 84         t.addST(<span class="string">&quot;</span><span class="string">Pink</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 85         t.addST(<span class="string">&quot;</span><span class="string">Ghostwhite</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 86         t.addST(<span class="string">&quot;</span><span class="string">Gray</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 87         t.addST(<span class="string">&quot;</span><span class="string">Brown</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 88         t.addST(<span class="string">&quot;</span><span class="string">Gainsboro</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 89         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+ 90         t.preorder();
+ 91         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+ 92         t.inorder();
+ 93         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+ 94         t.postorder();
+ 95         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+ 96         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 97     }<span class="comment">//END testST</span>
+ 98 
+ 99     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testND</span>() 
+100     {
+101         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test ND ...</span><span class="string">&quot;</span>);
+102         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+103         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+104         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the tree nondetermistaically ...</span><span class="string">&quot;</span>);
+105         t.addND(<span class="string">&quot;</span><span class="string">Red</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+106         t.addND(<span class="string">&quot;</span><span class="string">Blue</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+107         t.addND(<span class="string">&quot;</span><span class="string">Green</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+108         t.addND(<span class="string">&quot;</span><span class="string">Black</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+109         t.addND(<span class="string">&quot;</span><span class="string">White</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+110         t.addND(<span class="string">&quot;</span><span class="string">Purple</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+111         t.addND(<span class="string">&quot;</span><span class="string">Yellow</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+112         t.addND(<span class="string">&quot;</span><span class="string">Orange</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+113         t.addND(<span class="string">&quot;</span><span class="string">Indigo</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+114         t.addND(<span class="string">&quot;</span><span class="string">Aqua</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+115         t.addND(<span class="string">&quot;</span><span class="string">Tangerine</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+116         t.addND(<span class="string">&quot;</span><span class="string">Pink</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+117         t.addND(<span class="string">&quot;</span><span class="string">Ghostwhite</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+118         t.addND(<span class="string">&quot;</span><span class="string">Gray</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+119         t.addND(<span class="string">&quot;</span><span class="string">Brown</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+120         t.addND(<span class="string">&quot;</span><span class="string">Gainsboro</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+121         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+122         t.preorder();
+123         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+124         t.inorder();
+125         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+126         t.postorder();
+127         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+128         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+129     }<span class="comment">//END testND</span>
+130     
+131 }<span class="comment">//END BinaryColorTreeTester</span>
+132 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

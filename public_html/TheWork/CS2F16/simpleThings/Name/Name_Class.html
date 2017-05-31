@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Name Class</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Simple"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="Name_ADT.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="Name_ADT.html">Interface</a></li>
+    <li class="active green darken-2"><a href="#!">Class</a></li>
+    <li class="waves-effect"><a href="Name_Tester.html">Tester</a></li>
+    <li class="waves-effect"><a href="Name_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Name_Tester.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center green-text text-darken-2">Name Class</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment">* This implements the NameADT interrface</span>
+ 3 <span class="comment">*/</span>
+ 4 <span class="literal">package</span> simplethings;
+ 5  
+ 6 <span class="comment">/**</span>
+ 7 <span class="comment">*</span>
+ 8 <span class="comment">* </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 9 <span class="comment">*/</span>
+10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Name</span> <span class="literal">implements</span> NameADT 
+11 {
+12      
+13      <span class="literal">private</span> String <span class="ST2">firstName</span>;
+14      <span class="literal">private</span> String <span class="ST2">lastName</span>;
+15      
+16      <span class="literal">public</span> <span class="ST1">Name</span>(String first, String last) 
+17      {
+18          <span class="ST2">firstName</span> = first;
+19          <span class="ST2">lastName</span> = last;  
+20          
+21      }<span class="comment">//END Name</span>
+22  
+23      @Override
+24      <span class="literal">public</span> String <span class="ST1">first</span>() 
+25      {
+26          <span class="literal">return</span> <span class="ST2">firstName</span>;
+27          
+28      }<span class="comment">//END first</span>
+29  
+30      @Override
+31      <span class="literal">public</span> String <span class="ST1">last</span>() 
+32      {
+33          <span class="literal">return</span> <span class="ST2">lastName</span>;
+34          
+35      }<span class="comment">//END last</span>
+36  
+37      @Override
+38      <span class="literal">public</span> String <span class="ST1">natural</span>() 
+39      {
+40          <span class="literal">return</span> <span class="ST2">firstName</span> + <span class="string">&quot;</span> <span class="string">&quot;</span> + <span class="ST2">lastName</span>;
+41          
+42      }<span class="comment">//END natural</span>
+43  
+44      @Override
+45      <span class="literal">public</span> String <span class="ST1">formal</span>() 
+46      {
+47          <span class="literal">return</span> <span class="ST2">lastName</span> + <span class="string">&quot;</span><span class="string">, </span><span class="string">&quot;</span> + <span class="ST2">firstName</span>;
+48          
+49      }<span class="comment">//END formal</span>
+50      
+51      @Override
+52      <span class="literal">public</span> String <span class="ST1">toString</span>()
+53      {
+54          <span class="literal">return</span> <span class="ST2">firstName</span> + <span class="string">&quot;</span> <span class="string">&quot;</span> + <span class="ST2">lastName</span>;
+55          
+56      }<span class="comment">//END toString</span>
+57      
+58      @Override
+59      <span class="literal">public</span> String <span class="ST1">initials</span>()
+60      {
+61          String firstLetter = <span class="ST2">firstName</span>.substring(0,1);
+62          String lastLetter = <span class="ST2">lastName</span>.substring(0,1);
+63          <span class="literal">return</span> firstLetter + lastLetter;
+64          
+65      }<span class="comment">//END initials</span>
+66  
+67      @Override
+68      <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST1">check</span>(String fi, String li) {
+69          String first = <span class="ST2">firstName</span>.substring(0,1);
+70          String last = <span class="ST2">lastName</span>.substring(0,1);
+71          <span class="literal">return</span> (fi.equals(first))&amp;(li.equals(last));
+72      
+73      }<span class="comment">//END check</span>
+74 
+75 }<span class="comment">//END Name Class</span>
+76  
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

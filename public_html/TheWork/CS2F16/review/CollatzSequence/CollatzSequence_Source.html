@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Collatz Sequence Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Review"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active blue darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="CollatzSequence_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="CollatzSequence_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center blue-text text darken-2">Collatz Sequence Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * Run the collatz sequence from a user inputed number.</span>
+ 3 <span class="comment"> */</span>
+ 4 <span class="literal">package</span> Review;
+ 5 
+ 6 <span class="literal">import</span> java.util.Scanner;
+ 7 
+ 8 <span class="comment">/**</span>
+ 9 <span class="comment"> *</span>
+10 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+11  <span class="comment">*/</span>
+12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">CollatzSequence</span> 
+13 {
+14 
+15     <span class="comment">/**</span>
+16 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+17      <span class="comment">*/</span>
+18     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+19     {
+20         <span class="comment">//Local Variables</span>
+21         Scanner Keyboard = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>);  <span class="comment">//Keyboard variable</span>
+22         <span class="literal">int</span> num;                                    <span class="comment">//User&#39;s input number</span>
+23         <span class="literal">int</span> count = 0;                              <span class="comment">//Counter for formating lines</span>
+24         
+25         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Main</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+26         
+27         <span class="comment">//Prompt user to input positive integer</span>
+28         System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">The positive integer?   </span><span class="string">&quot;</span>);
+29         num = Keyboard.nextInt();
+30         System.<span class="ST3">out</span>.print(num + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+31         
+32         <span class="comment">//WHILE (number is not 1)</span>
+33         <span class="literal">while</span> (num != 1)
+34         {
+35             <span class="comment">//IF (number is even)</span>
+36             <span class="literal">if</span> (num % 2 == 0)
+37             {
+38                 <span class="comment">//Divide number by 2</span>
+39                 num = num / 2;
+40                 
+41                 <span class="comment">//Display number</span>
+42                 System.<span class="ST3">out</span>.print(num + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+43                 
+44                 <span class="comment">//Fit 10 per line</span>
+45                 count = <span class="ST4">format</span>(count);
+46             }
+47             <span class="comment">//ELSE (number is odd)</span>
+48             <span class="literal">else</span>
+49             {
+50                 <span class="comment">//Multiply number by 3 and add 1</span>
+51                 num = num * 3 + 1;
+52                 
+53                 <span class="comment">//Display Number</span>
+54                 System.<span class="ST3">out</span>.print(num + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+55                 
+56                 <span class="comment">//Fit 10 per line</span>
+57                 count = <span class="ST4">format</span>(count);
+58                 
+59             }<span class="comment">//END IF</span>
+60             
+61         }<span class="comment">//END WHILE</span>
+62         
+63         <span class="comment">//Extra Lines</span>
+64         System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+65         
+66     }<span class="comment">//END MAIN</span>
+67 
+68     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">format</span>(<span class="literal">int</span> count) 
+69     {
+70         <span class="comment">//Add one to counter</span>
+71         count ++;
+72         
+73         <span class="comment">//IF (ten number are in line</span>
+74         <span class="literal">if</span> ((count + 1) % 10 == 0)
+75             
+76             <span class="comment">//Go to next line</span>
+77             System.<span class="ST3">out</span>.println();
+78         
+79         <span class="comment">//Return counter value</span>
+80         <span class="literal">return</span> count;
+81         
+82     }<span class="comment">//END fotrmat</span>
+83     
+84 }<span class="comment">//END CollatzSequence</span>
+85 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

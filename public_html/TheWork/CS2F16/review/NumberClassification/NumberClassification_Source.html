@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Number Classification Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Review"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active blue darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="NumberClassification_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="NumberClassification_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center blue-text text darken-2">Number Classification Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * Classify 25 3 digit numbers its different categories</span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> Review;
+  5 
+  6 <span class="literal">import</span> java.util.Random;
+  7 
+  8 <span class="comment">/**</span>
+  9 <span class="comment"> *</span>
+ 10 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 11  <span class="comment">*/</span>
+ 12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">NumberClassification</span> 
+ 13 {
+ 14 
+ 15     <span class="comment">/**</span>
+ 16 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 17      <span class="comment">*/</span>
+ 18     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+ 19     {
+ 20         <span class="comment">//Local Variables</span>
+ 21         Random generator = <span class="literal">new</span> Random();    <span class="comment">//Random number generator</span>
+ 22         <span class="literal">int</span> num;                            <span class="comment">//Random number</span>
+ 23         <span class="literal">int</span> count = 0;                      <span class="comment">//Number of random digits generated</span>
+ 24         String all = <span class="string">&quot;&quot;</span>;                    <span class="comment">//Numbers generated</span>
+ 25         String odd = <span class="string">&quot;&quot;</span>;                    <span class="comment">//Odd numbers</span>
+ 26         String even = <span class="string">&quot;&quot;</span>;                   <span class="comment">//Even numbers</span>
+ 27         String mixed = <span class="string">&quot;&quot;</span>;                  <span class="comment">//Mixed numbers</span>
+ 28         String pairs = <span class="string">&quot;&quot;</span>;                  <span class="comment">//Paired numbers</span>
+ 29         
+ 30         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Main</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+ 31         
+ 32         <span class="comment">//Generate random number</span>
+ 33         num = generator.nextInt(900) + 100;
+ 34         
+ 35         <span class="comment">//Count 1</span>
+ 36         count++;
+ 37         
+ 38         <span class="comment">//WHILE (count is not 25)</span>
+ 39         <span class="literal">while</span> (count != 26)
+ 40         {
+ 41             <span class="comment">//Add number to list of numbers</span>
+ 42             all = all + num + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+ 43             
+ 44             <span class="comment">//IF (number consists of odd number)</span>
+ 45             <span class="literal">if</span> (<span class="ST3">testOdd</span>(num))
+ 46             {
+ 47                 <span class="comment">//Add number to odd numbers</span>
+ 48                 odd = odd + num + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+ 49             }    
+ 50             <span class="comment">//ELSE IF (number consists of even numbers)</span>
+ 51             <span class="literal">else</span> <span class="literal">if</span> (<span class="ST3">testEven</span>(num))
+ 52             {
+ 53                 <span class="comment">//Add number to even numbers</span>
+ 54                 even = even + num + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+ 55             }
+ 56             <span class="comment">//ELSE IF (number consists of mixed numbers</span>
+ 57             <span class="literal">else</span> <span class="literal">if</span> (<span class="ST3">testMixed</span>(num))
+ 58             {
+ 59                 <span class="comment">//Add number to mixed numbers</span>
+ 60                 mixed = mixed + num + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+ 61             }
+ 62             <span class="comment">//ELSE IF (number consists of pairs)</span>
+ 63             <span class="literal">else</span> <span class="literal">if</span> (<span class="ST3">testPairs</span>(num))
+ 64             {
+ 65                 <span class="comment">//Add number to paired numbers</span>
+ 66                 pairs = pairs + num + <span class="string">&quot;</span> <span class="string">&quot;</span>;
+ 67                 
+ 68             }<span class="comment">//END IF</span>
+ 69                 
+ 70             <span class="comment">//Generate random number</span>
+ 71             num = generator.nextInt(900) + 100;
+ 72         
+ 73             <span class="comment">//Count 1</span>
+ 74             count++;
+ 75             
+ 76         }<span class="comment">//END WHILE</span>
+ 77         
+ 78         <span class="comment">//Display the generated numbers</span>
+ 79         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The Numbers...</span><span class="string">&quot;</span>, all);
+ 80         
+ 81         <span class="comment">//Display odd numbers</span>
+ 82         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The odd digit numbers...</span><span class="string">&quot;</span>, odd);
+ 83         
+ 84         <span class="comment">//Display even numbers</span>
+ 85         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The even digit numbers...</span><span class="string">&quot;</span>, even);
+ 86         
+ 87         <span class="comment">//Display the mixed digit numbers</span>
+ 88         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The mixed digit numbers...</span><span class="string">&quot;</span>, mixed);
+ 89         
+ 90         <span class="comment">//Display the pairs</span>
+ 91         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The pairs...</span><span class="string">&quot;</span>, pairs);
+ 92         
+ 93     }<span class="comment">//END MAIN</span>
+ 94 
+ 95     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">boolean</span> <span class="ST2">testOdd</span>(<span class="literal">int</span> num)
+ 96     {
+ 97         String temp;                <span class="comment">//Temporary string</span>
+ 98         <span class="literal">int</span>[] digit = <span class="literal">new</span> <span class="literal">int</span>[3];   <span class="comment">//Digit array</span>
+ 99         <span class="literal">boolean</span> value = <span class="literal">false</span>;      <span class="comment">//Return value</span>
+100         
+101         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+102         
+103         <span class="comment">//Convert number into string</span>
+104         temp = Integer.<span class="ST3">toString</span>(num);
+105         
+106         <span class="comment">//FOR (every digit in the number)</span>
+107         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; 3; i++)
+108         {
+109             <span class="comment">//store digit in array</span>
+110             digit[i] = temp.charAt(i);
+111             
+112         }<span class="comment">//END FOR</span>
+113         
+114         <span class="comment">//If all three numbers are odd</span>
+115         <span class="literal">if</span> (digit[0] % 2 != 0 &amp;&amp; digit [1] % 2 != 0 &amp;&amp; digit [2] % 2 != 0)
+116             
+117             <span class="comment">//Set return value to true</span>
+118             value = <span class="literal">true</span>;
+119         
+120         <span class="comment">//END IF</span>
+121         
+122         <span class="comment">//Return value</span>
+123         <span class="literal">return</span> value;
+124         
+125     }<span class="comment">//END testOdd</span>
+126 
+127     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">boolean</span> <span class="ST2">testEven</span>(<span class="literal">int</span> num) 
+128     {
+129         String temp;                <span class="comment">//Temporary string</span>
+130         <span class="literal">int</span>[] digit = <span class="literal">new</span> <span class="literal">int</span>[3];   <span class="comment">//Digit array</span>
+131         <span class="literal">boolean</span> value = <span class="literal">false</span>;      <span class="comment">//Return value</span>
+132         
+133         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+134         <span class="comment">//Convert number into string</span>
+135         temp = Integer.<span class="ST3">toString</span>(num);
+136         
+137         <span class="comment">//FOR (every digit in the number)</span>
+138         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; 3; i++)
+139         {
+140             <span class="comment">//store digit in array</span>
+141             digit[i] = temp.charAt(i);
+142             
+143         }<span class="comment">//END FOR</span>
+144         
+145         <span class="comment">//IF (all three numbers are even)</span>
+146         <span class="literal">if</span>(digit[0] % 2 == 0 &amp;&amp; digit [1] % 2 == 0 &amp;&amp; digit[2] % 2 == 0)
+147             
+148             <span class="comment">//Set return value to true</span>
+149             value = <span class="literal">true</span>;
+150         
+151         <span class="comment">//END IF</span>
+152         
+153         <span class="comment">//Return value</span>
+154         <span class="literal">return</span> value;
+155         
+156     }<span class="comment">//END testEven</span>
+157 
+158     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">boolean</span> <span class="ST2">testMixed</span>(<span class="literal">int</span> num) 
+159     {
+160         String temp;                <span class="comment">//Temporary string</span>
+161         <span class="literal">int</span>[] digit = <span class="literal">new</span> <span class="literal">int</span>[3];   <span class="comment">//Digit array</span>
+162         <span class="literal">boolean</span> value = <span class="literal">false</span>;      <span class="comment">//Return value</span>
+163         
+164         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+165         <span class="comment">//Convert number into string</span>
+166         temp = Integer.<span class="ST3">toString</span>(num);
+167         
+168         <span class="comment">//FOR (every digit in the number)</span>
+169         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; 3; i++)
+170         {
+171             <span class="comment">//store digit in array</span>
+172             digit[i] = temp.charAt(i);
+173             
+174         }<span class="comment">//END FOR</span>
+175         
+176         <span class="comment">//IF (all three numbers are different)</span>
+177         <span class="literal">if</span>(digit[0] != digit [1] &amp;&amp; digit [1] != digit[2] &amp;&amp; digit[0] != digit[2])
+178             
+179             <span class="comment">//Set return value to true</span>
+180             value = <span class="literal">true</span>;
+181         
+182         <span class="comment">//END IF</span>
+183         
+184         <span class="comment">//Return value</span>
+185         <span class="literal">return</span> value; 
+186         
+187     }<span class="comment">//END testMixed</span>
+188 
+189     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">boolean</span> <span class="ST2">testPairs</span>(<span class="literal">int</span> num) 
+190     {
+191         String temp;                <span class="comment">//Temporary string</span>
+192         <span class="literal">int</span>[] digit = <span class="literal">new</span> <span class="literal">int</span>[3];   <span class="comment">//Digit array</span>
+193         <span class="literal">boolean</span> value = <span class="literal">false</span>;      <span class="comment">//Return value</span>
+194         
+195         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+196         <span class="comment">//Convert number into string</span>
+197         temp = Integer.<span class="ST3">toString</span>(num);
+198         
+199         <span class="comment">//FOR (every digit in the number)</span>
+200         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; 3; i++)
+201         {
+202             <span class="comment">//store digit in array</span>
+203             digit[i] = temp.charAt(i);
+204             
+205         }<span class="comment">//END FOR</span>
+206         
+207         <span class="comment">//IF (digit 1 is equal to digit 2)</span>
+208         <span class="literal">if</span>(digit [0] == digit[1])
+209             
+210             <span class="comment">//Set return value to true</span>
+211             value = <span class="literal">true</span>;
+212         
+213         <span class="comment">//ELSE IF (digit 2 is equal to digit 3)</span>
+214         <span class="literal">else</span> <span class="literal">if</span> (digit[1] == digit[2])
+215             
+216             <span class="comment">//Set return value to true</span>
+217             value = <span class="literal">true</span>;
+218         
+219         <span class="comment">//ELSE IF (digit 1 is equal to digit 3)</span>
+220         <span class="literal">else</span> <span class="literal">if</span> (digit[0] == digit[2])
+221         
+222             <span class="comment">//Set return value to true</span>
+223             value = <span class="literal">true</span>;
+224         
+225         <span class="comment">//END IF</span>
+226         
+227         <span class="comment">//Return value</span>
+228         <span class="literal">return</span> value;
+229         
+230     }<span class="comment">//END testPairs</span>
+231     
+232     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">display</span>(String text, String num)
+233     {
+234         System.<span class="ST4">out</span>.println(text + <span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span> + num + <span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+235     }
+236     
+237 }<span class="comment">//END NumberClassification</span>
+238 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

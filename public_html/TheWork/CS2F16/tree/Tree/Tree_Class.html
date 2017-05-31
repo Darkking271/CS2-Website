@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Tree Class</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="Tree_ADT.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="Tree_ADT.html">Interface</a></li>
+    <li class="active yellow darken-2"><a href="#!">Class</a></li>
+    <li class="waves-effect"><a href="Tree_Exception.html">Exception</a></li>
+    <li class="waves-effect"><a href="Tree_Tester.html">Tester</a></li>
+    <li class="waves-effect"><a href="Tree_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Tree_Exception.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Tree Class</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * Binary tree class to implement binary tree interface</span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> trees;
+  5 
+  6 <span class="comment">/**</span>
+  7 <span class="comment"> *</span>
+  8 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+  9  <span class="comment">*/</span>
+ 10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">BinaryTree</span>&lt;K, V&gt; <span class="literal">implements</span> BinaryTreeADT&lt;K, V&gt;
+ 11 {
+ 12     <span class="literal">private</span> K <span class="ST2">key</span>;
+ 13     <span class="literal">private</span> V <span class="ST2">value</span>;
+ 14     <span class="literal">private</span> BinaryTree&lt;K, V&gt; <span class="ST2">lchild</span>;
+ 15     <span class="literal">private</span> BinaryTree&lt;K, V&gt; <span class="ST2">rchild</span>;
+ 16 
+ 17     <span class="literal">public</span> <span class="ST1">BinaryTree</span>()
+ 18     {
+ 19         <span class="ST2">key</span> = <span class="literal">null</span>;
+ 20     }<span class="comment">//END BinaryTree constructor</span>
+ 21     
+ 22     <span class="literal">public</span> V <span class="ST1">value</span>() 
+ 23     {
+ 24         <span class="literal">return</span> <span class="ST2">value</span>;
+ 25     }<span class="comment">//END value</span>
+ 26 
+ 27     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">setValue</span>(V value) 
+ 28     {
+ 29         <span class="literal">this</span>.<span class="ST2">value</span> = value;
+ 30     }<span class="comment">//END setValue</span>
+ 31 
+ 32     <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST1">empty</span>() 
+ 33     {
+ 34         <span class="literal">return</span> <span class="ST2">key</span> == <span class="literal">null</span>;
+ 35     }<span class="comment">//END empty</span>
+ 36 
+ 37     <span class="literal">public</span> <span class="literal">int</span> <span class="ST1">height</span>() 
+ 38     {
+ 39         <span class="literal">if</span> (empty())
+ 40             <span class="literal">return</span> 0;
+ 41         <span class="literal">else</span>
+ 42             <span class="literal">return</span> 1 + max(<span class="ST2">lchild</span>.height(), <span class="ST2">rchild</span>.height());
+ 43     }<span class="comment">//END height</span>
+ 44     
+ 45     <span class="literal">private</span> <span class="literal">int</span> <span class="ST1">max</span>(<span class="literal">int</span> a, <span class="literal">int</span> b)
+ 46     {
+ 47         <span class="literal">if</span> (a &gt; b)
+ 48             <span class="literal">return</span> a;
+ 49         <span class="literal">else</span>
+ 50             <span class="literal">return</span> b;
+ 51     }<span class="comment">//END max</span>
+ 52 
+ 53     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">preorder</span>() 
+ 54     {
+ 55         <span class="literal">if</span> (!empty())
+ 56         {
+ 57             visit();
+ 58             <span class="ST2">lchild</span>.preorder();
+ 59             <span class="ST2">rchild</span>.preorder();
+ 60         }<span class="comment">//END IF</span>
+ 61     }<span class="comment">//END preorder</span>
+ 62 
+ 63     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">inorder</span>() 
+ 64     {
+ 65         <span class="literal">if</span> (!empty())
+ 66         {
+ 67             <span class="ST2">lchild</span>.inorder();
+ 68             visit();
+ 69             <span class="ST2">rchild</span>.inorder();
+ 70         }<span class="comment">//END IF</span>
+ 71     }<span class="comment">//END inorder</span>
+ 72 
+ 73     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">postorder</span>() 
+ 74     {
+ 75         <span class="literal">if</span> (!empty())
+ 76         {
+ 77             <span class="ST2">lchild</span>.postorder();
+ 78             <span class="ST2">rchild</span>.postorder();
+ 79             visit();
+ 80         }<span class="comment">//END IF</span>
+ 81     }<span class="comment">//END postorder</span>
+ 82 
+ 83     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">addLR</span>(K key, V value, String dir) <span class="literal">throws</span> BinaryTreeCreationException 
+ 84     {
+ 85         <span class="literal">try</span>
+ 86         {
+ 87             <span class="literal">if</span> (dir.equals(<span class="string">&quot;&quot;</span>))
+ 88                 sprout(key, value);
+ 89             <span class="literal">else</span> <span class="literal">if</span> (dir.substring(0, 1).equalsIgnoreCase(<span class="string">&quot;</span><span class="string">L</span><span class="string">&quot;</span>))
+ 90                 <span class="ST2">lchild</span>.addLR(key, value, dir.substring(1));
+ 91             <span class="literal">else</span> <span class="literal">if</span> (dir.substring(0, 1).equalsIgnoreCase(<span class="string">&quot;</span><span class="string">R</span><span class="string">&quot;</span>))
+ 92                 <span class="ST2">rchild</span>.addLR(key, value, dir.substring(1));
+ 93             <span class="literal">else</span>
+ 94                 <span class="literal">throw</span> <span class="literal">new</span> BinaryTreeCreationException(<span class="string">&quot;</span><span class="string">### strange directional indicator: </span><span class="string">&quot;</span> + dir.substring(0, 1));
+ 95         }
+ 96         <span class="literal">catch</span> (BinaryTreeCreationException e)
+ 97         {
+ 98             <span class="literal">throw</span> <span class="literal">new</span> BinaryTreeCreationException(<span class="string">&quot;</span><span class="string">### no such location in the tree</span><span class="string">&quot;</span>);
+ 99         }<span class="comment">//END TRY</span>
+100     }<span class="comment">//addLR</span>
+101 
+102     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">addND</span>(K key, V value) 
+103     {
+104         <span class="literal">if</span> (empty())
+105             sprout(key, value);
+106         <span class="literal">else</span> <span class="literal">if</span> (Math.<span class="ST3">random</span>() &lt; 0.5)
+107             <span class="ST2">lchild</span>.addND(key, value);
+108         <span class="literal">else</span>
+109             <span class="ST2">rchild</span>.addND(key, value);
+110     }<span class="comment">//END addND</span>
+111 
+112     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">addST</span>(K key, V value) <span class="literal">throws</span> BinaryTreeCreationException 
+113     {
+114         <span class="literal">if</span> (empty())
+115             sprout(key, value);
+116         <span class="literal">else</span>
+117         {
+118             Comparable cey = (Comparable) key;
+119             Comparable t = (Comparable) <span class="literal">this</span>.<span class="ST2">key</span>;
+120             <span class="literal">if</span> (cey.compareTo(t) &lt; 0)
+121                 <span class="ST2">lchild</span>.addST(key, value);
+122             <span class="literal">else</span> <span class="literal">if</span> (cey.compareTo(t) &gt; 0)
+123                 <span class="ST2">rchild</span>.addST(key, value);
+124             <span class="literal">else</span>
+125                 <span class="literal">throw</span> <span class="literal">new</span> BinaryTreeCreationException(<span class="string">&quot;</span><span class="string">### can&#39;t have equality in bst</span><span class="string">&quot;</span>);
+126         }<span class="comment">//END IF</span>
+127     }<span class="comment">//END addST</span>
+128 
+129     <span class="literal">public</span> V <span class="ST1">get</span>(K key) 
+130     {
+131         BinaryTree&lt;K, V&gt; t = find(key);
+132         <span class="literal">return</span> t.<span class="ST2">value</span>;
+133     }<span class="comment">//END get</span>
+134 
+135     <span class="literal">public</span> BinaryTree&lt;K, V&gt; <span class="ST1">find</span>(K key) 
+136     {
+137         <span class="literal">if</span> (empty())
+138             <span class="literal">return</span> <span class="literal">null</span>;
+139         <span class="literal">else</span> <span class="literal">if</span> (<span class="literal">this</span>.<span class="ST2">key</span>.equals(key))
+140             <span class="literal">return</span> <span class="literal">this</span>;
+141         <span class="literal">else</span>
+142         {
+143             BinaryTree&lt;K, V&gt; l = <span class="ST2">lchild</span>.find(key);
+144             <span class="literal">if</span> (l != <span class="literal">null</span>)
+145                 <span class="literal">return</span> l;
+146             BinaryTree&lt;K, V&gt; r = <span class="ST2">rchild</span>.find(key);
+147             <span class="literal">if</span> (r != <span class="literal">null</span>)
+148                 <span class="literal">return</span> r;
+149             <span class="literal">return</span> <span class="literal">null</span>;
+150         }<span class="comment">//END IF</span>
+151     }<span class="comment">//END find</span>
+152 
+153     <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST1">member</span>(K key) 
+154     {
+155         <span class="literal">if</span> (empty())
+156             <span class="literal">return</span> <span class="literal">false</span>;
+157         <span class="literal">else</span> <span class="literal">if</span> (<span class="literal">this</span>.<span class="ST2">key</span>.equals(key))
+158             <span class="literal">return</span> <span class="literal">true</span>;
+159         <span class="literal">else</span>
+160             <span class="literal">return</span> (<span class="ST2">lchild</span>.member(key) | <span class="ST2">rchild</span>.member(key));
+161     }<span class="comment">//END member</span>
+162 
+163     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">visit</span>() 
+164     {
+165         String rep;
+166         <span class="literal">if</span> (<span class="ST2">value</span> == <span class="literal">null</span>)
+167             rep = <span class="string">&quot;</span><span class="string">---</span><span class="string">&quot;</span>;
+168         <span class="literal">else</span>
+169             rep = <span class="ST2">value</span>.toString();
+170         String s = <span class="string">&quot;</span><span class="string">[</span><span class="string">&quot;</span> + <span class="ST2">key</span> + <span class="string">&quot;</span><span class="string">:</span><span class="string">&quot;</span> + rep + <span class="string">&quot;</span><span class="string">]</span><span class="string">&quot;</span>;
+171         System.<span class="ST4">out</span>.println(s);
+172     }<span class="comment">//END visit</span>
+173 
+174     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">sprout</span>(K key, V value) 
+175     {
+176         <span class="literal">this</span>.<span class="ST2">key</span> = key;
+177         <span class="literal">this</span>.<span class="ST2">value</span> = value;
+178         <span class="literal">this</span>.<span class="ST2">lchild</span> = <span class="literal">new</span> BinaryTree&lt;K, V&gt;();
+179         <span class="literal">this</span>.<span class="ST2">rchild</span> = <span class="literal">new</span> BinaryTree&lt;K, V&gt;();
+180     }<span class="comment">//END sprout</span>
+181     
+182 }<span class="comment">//END BinaryTree</span>
+183 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

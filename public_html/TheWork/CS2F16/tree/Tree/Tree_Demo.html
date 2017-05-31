@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Tree Demo</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="Tree_Tester.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="Tree_ADT.html">Interface</a></li>
+    <li class="waves-effect"><a href="Tree_Class.html">Class</a></li>
+    <li class="waves-effect"><a href="Tree_Exception.html">Exception</a></li>
+    <li class="waves-effect"><a href="Tree_Tester.html">Tester</a></li>
+    <li class="active yellow darken-2"><a href="#!">Demo</a></li>
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Tree Demo</h1>
+
+
+  <div class="container">
+    <div class="section">
+	
+<div class="card white">
+  <pre>
+ <span class="grey-text">run:</span>
+ Test LR ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree directionally ...
+ >>> PREORDER
+ [lion:---]
+ [elephant:---]
+ [alligator:---]
+ [ardvaark:---]
+ [bear:---]
+ [giraffe:---]
+ [shark:---]
+ [zebra:---]
+ [tiger:---]
+ [snake:---]
+ >>> INORDER
+ [alligator:---]
+ [ardvaark:---]
+ [bear:---]
+ [elephant:---]
+ [giraffe:---]
+ [lion:---]
+ [shark:---]
+ [snake:---]
+ [tiger:---]
+ [zebra:---]
+ >>> POSTORDER
+ [bear:---]
+ [ardvaark:---]
+ [alligator:---]
+ [giraffe:---]
+ [elephant:---]
+ [snake:---]
+ [tiger:---]
+ [zebra:---]
+ [shark:---]
+ [lion:---]
+ >>> HEIGHT = 5
+
+
+ Test ST ... 
+ >>> Creating empty tree.
+ >>> Adding elements to the binary search tree ...
+ >>> PREORDER
+ [Lion:---]
+ [shark:---]
+ [elephant:---]
+ [alligator:---]
+ [ardvaark:---]
+ [bear:---]
+ [giraffe:---]
+ [zebra:---]
+ [tiger:---]
+ [snake:---]
+ >>> INORDER
+ [Lion:---]
+ [alligator:---]
+ [ardvaark:---]
+ [bear:---]
+ [elephant:---]
+ [giraffe:---]
+ [shark:---]
+ [snake:---]
+ [tiger:---]
+ [zebra:---]
+ >>> POSTORDER
+ [bear:---]
+ [ardvaark:---]
+ [alligator:---]
+ [giraffe:---]
+ [elephant:---]
+ [snake:---]
+ [tiger:---]
+ [zebra:---]
+ [shark:---]
+ [Lion:---]
+ >>> HEIGHT = 6
+
+
+ Test ND ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree nondetermistaically ...
+ >>> PREORDER
+ [lion:---]
+ [shark:---]
+ [elephant:---]
+ [alligator:---]
+ [giraffe:---]
+ [tiger:---]
+ [zebra:---]
+ [ardvaark:---]
+ [snake:---]
+ [bear:---]
+ >>> INORDER
+ [alligator:---]
+ [elephant:---]
+ [giraffe:---]
+ [shark:---]
+ [tiger:---]
+ [lion:---]
+ [zebra:---]
+ [snake:---]
+ [ardvaark:---]
+ [bear:---]
+ >>> POSTORDER
+ [alligator:---]
+ [giraffe:---]
+ [elephant:---]
+ [tiger:---]
+ [shark:---]
+ [snake:---]
+ [bear:---]
+ [ardvaark:---]
+ [zebra:---]
+ [lion:---]
+ >>> HEIGHT = 4
+
+
+ Test ND ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree nondetermistaically ...
+ >>> PREORDER
+ [lion:---]
+ [shark:---]
+ [tiger:---]
+ [snake:---]
+ [giraffe:---]
+ [alligator:---]
+ [ardvaark:---]
+ [bear:---]
+ [elephant:---]
+ [zebra:---]
+ >>> INORDER
+ [snake:---]
+ [tiger:---]
+ [giraffe:---]
+ [shark:---]
+ [alligator:---]
+ [bear:---]
+ [ardvaark:---]
+ [lion:---]
+ [zebra:---]
+ [elephant:---]
+ >>> POSTORDER
+ [snake:---]
+ [giraffe:---]
+ [tiger:---]
+ [bear:---]
+ [ardvaark:---]
+ [alligator:---]
+ [shark:---]
+ [zebra:---]
+ [elephant:---]
+ [lion:---]
+ >>> HEIGHT = 5
+
+
+ <span class="light-green-text">BUILD SUCCESSFUL (total time: 0 seconds)</span>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

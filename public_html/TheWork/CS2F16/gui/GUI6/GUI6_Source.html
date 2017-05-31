@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>GUI6 Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#GUI"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active red darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="GUI6_KFrame.html">KFrame</a></li>
+    <li class="waves-effect"><a href="GUI6_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="GUI6_KFrame.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center red-text text-darken-2">GUI6 Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * GUI6 is like GUI5, but with a different structure. The frame class</span>
+ 3 <span class="comment"> * has been moved to a frame package.</span>
+ 4 <span class="comment"> */</span>
+ 5 <span class="literal">package</span> gui;
+ 6 
+ 7 <span class="literal">import</span> frames.KFrame6;
+ 8 <span class="literal">import</span> javax.swing.SwingUtilities;
+ 9 
+10 <span class="comment">/**</span>
+11 <span class="comment"> *</span>
+12 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+13  <span class="comment">*/</span>
+14 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">GUI6</span> 
+15 {
+16 
+17     <span class="comment">/**</span>
+18 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+19      <span class="comment">*/</span>
+20     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+21     {
+22         SwingUtilities.<span class="ST3">invokeLater</span>(<span class="literal">new</span> ThreadForGUI());
+23         
+24     }<span class="comment">//END MAIN</span>
+25     
+26     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">class</span> <span class="ST2">ThreadForGUI</span> <span class="literal">implements</span> Runnable
+27     {
+28         <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">run</span>()
+29         {
+30             GUI6 gui = <span class="literal">new</span> GUI6();
+31             
+32         }<span class="comment">//END run</span>
+33         
+34     }<span class="comment">//END ThreadForGUI</span>
+35     
+36     <span class="literal">public</span> <span class="ST1">GUI6</span>()
+37     {
+38         KFrame6 frame = <span class="literal">new</span> KFrame6(<span class="string">&quot;</span><span class="string">GUI6</span><span class="string">&quot;</span>);
+39         
+40     }<span class="comment">//END GUI6</span>
+41     
+42 }<span class="comment">//END GUI6</span>
+43 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

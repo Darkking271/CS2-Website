@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>ArrayList Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#List"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active purple darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="ArrayList_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="ArrayList_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center purple-text text-darken-2">ArrayList Source</h1>
+	  <br>
+	  
+  <div class="center">	  
+  <a class="waves-effect waves-light btn green darken-2" href="../../simpleThings/Name/Name_ADT.html" target="_blank">Name</a>
+  <a class="waves-effect waves-light btn green darken-2" href="../../simpleThings/Triangle/Triangle_ADT.html" target="_blank">Triangle</a>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * This is the unrefined code that I refined</span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> linearlists;
+  5 <span class="literal">import</span> java.util.ArrayList;
+  6 <span class="literal">import</span> simplethings.Name;
+  7 <span class="literal">import</span> simplethings.Triangle;
+  8 
+  9 <span class="comment">/**</span>
+ 10 <span class="comment"> *</span>
+ 11 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 12  <span class="comment">*/</span>
+ 13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">ArrayListPlay</span> 
+ 14 {
+ 15 
+ 16     <span class="comment">/**</span>
+ 17 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 18      <span class="comment">*/</span>
+ 19     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+ 20     {
+ 21         <span class="comment">//Part 1: creation of lists</span>
+ 22         ArrayList&lt;String&gt; songs = <span class="ST3">createSongList</span>();
+ 23         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The songs ... </span><span class="string">&quot;</span>, songs);
+ 24         ArrayList&lt;Name&gt; actors = <span class="ST3">creatActorList</span>();
+ 25         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The actors ... </span><span class="string">&quot;</span>, actors);
+ 26         ArrayList&lt;Triangle&gt; triangles = <span class="ST3">creatTriangleList</span>();
+ 27         <span class="ST3">display</span>(<span class="string">&quot;</span><span class="string">The triangles ... </span><span class="string">&quot;</span>, triangles);
+ 28         
+ 29         <span class="comment">//Part 2: Use the Lists</span>
+ 30         <span class="ST3">displayLengths</span>(songs);
+ 31         <span class="ST3">displayInitials</span>(actors);
+ 32         <span class="ST3">displayAreas</span>(triangles);
+ 33     }<span class="comment">//END MAIN</span>
+ 34 
+ 35     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">createSongList</span>() 
+ 36     {
+ 37         ArrayList&lt;String&gt; songs = <span class="literal">new</span> ArrayList&lt;String&gt;();
+ 38         
+ 39         songs.add(<span class="string">&quot;</span><span class="string">Happy</span><span class="string">&quot;</span>);
+ 40         songs.add(<span class="string">&quot;</span><span class="string">Dog Days are Over</span><span class="string">&quot;</span>);
+ 41         songs.add(<span class="string">&quot;</span><span class="string">Budapest</span><span class="string">&quot;</span>);
+ 42         songs.add(<span class="string">&quot;</span><span class="string">Give Me Your Eyes</span><span class="string">&quot;</span>);
+ 43         songs.add(<span class="string">&quot;</span><span class="string">Castle of Glass</span><span class="string">&quot;</span>);
+ 44         songs.add(<span class="string">&quot;</span><span class="string">Heralds</span><span class="string">&quot;</span>);
+ 45         songs.add(<span class="string">&quot;</span><span class="string">No Rest for the Wicked</span><span class="string">&quot;</span>);
+ 46         songs.add(<span class="string">&quot;</span><span class="string">Death from Above</span><span class="string">&quot;</span>);
+ 47         
+ 48         <span class="literal">return</span> songs;
+ 49         
+ 50     }<span class="comment">//END createSongList</span>
+ 51     
+ 52     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;Name&gt; <span class="ST2">creatActorList</span>() 
+ 53     {
+ 54         ArrayList&lt;Name&gt; actors = <span class="literal">new</span> ArrayList&lt;Name&gt;();
+ 55          
+ 56         Name ryan = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Ryan</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Reynolds</span><span class="string">&quot;</span>);
+ 57         Name hugh = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Hugh</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Jackman</span><span class="string">&quot;</span>);
+ 58         Name zach = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Zach</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Braff</span><span class="string">&quot;</span>);
+ 59         Name bradley = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Bradley</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Cooper</span><span class="string">&quot;</span>);
+ 60         Name halle = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Halle</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Berry</span><span class="string">&quot;</span>);
+ 61         Name kate = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Kate</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Mara</span><span class="string">&quot;</span>);
+ 62         Name kevin = <span class="literal">new</span> Name(<span class="string">&quot;</span><span class="string">Kevin</span><span class="string">&quot;</span>, <span class="string">&quot;</span><span class="string">Spacey</span><span class="string">&quot;</span>);
+ 63         
+ 64         actors.add(ryan);
+ 65         actors.add(hugh);
+ 66         actors.add(zach);
+ 67         actors.add(bradley);
+ 68         actors.add(halle);
+ 69         actors.add(kate);
+ 70         actors.add(kevin);
+ 71         
+ 72         <span class="literal">return</span> actors;
+ 73         
+ 74     }<span class="comment">//END creatActorList</span>
+ 75 
+ 76     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;Triangle&gt; <span class="ST2">creatTriangleList</span>() 
+ 77     {
+ 78         ArrayList&lt;Triangle&gt; triangles = <span class="literal">new</span> ArrayList&lt;Triangle&gt;();
+ 79         
+ 80         Triangle jupiter  = <span class="literal">new</span> Triangle(30);
+ 81         Triangle nexus = <span class="literal">new</span> Triangle(6,12,9);
+ 82         Triangle nebula = <span class="literal">new</span> Triangle(3,4,5);
+ 83         Triangle nova = <span class="literal">new</span> Triangle(10);
+ 84         Triangle singularity = <span class="literal">new</span> Triangle(12);
+ 85         Triangle neptune = <span class="literal">new</span> Triangle(12,13,14);
+ 86         
+ 87         triangles.add(jupiter);
+ 88         triangles.add(nexus);
+ 89         triangles.add(nebula);
+ 90         triangles.add(nova);
+ 91         triangles.add(singularity);
+ 92         triangles.add(neptune);
+ 93         
+ 94         <span class="literal">return</span> triangles;
+ 95         
+ 96     }<span class="comment">//END createTriangleList</span>
+ 97     
+ 98     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">display</span>(String text, ArrayList items) 
+ 99     {
+100         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span> + text);
+101         
+102         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; items.size(); i++)
+103         {
+104             System.<span class="ST4">out</span>.println(items.get(i));
+105             
+106         }<span class="comment">//END FOR</span>
+107         
+108     }<span class="comment">//END display</span>
+109 
+110     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayLengths</span>(ArrayList&lt;String&gt; songs) 
+111     {
+112         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string">The Song Lengths...</span><span class="string">&quot;</span>);
+113         
+114         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; songs.size(); i++)
+115         {
+116             System.<span class="ST4">out</span>.println(songs.get(i).length());
+117             
+118         }<span class="comment">//END FOR</span>
+119         
+120     }<span class="comment">//END displayLengths</span>
+121 
+122     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayInitials</span>(ArrayList&lt;Name&gt; actors) 
+123     {
+124         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string">The Initials</span><span class="string">&quot;</span>);
+125         
+126         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; actors.size(); i++)
+127         {
+128             System.<span class="ST4">out</span>.println(actors.get(i).initials());
+129             
+130         }<span class="comment">//END FOR</span>
+131         
+132     }<span class="comment">//END displayIntials</span>
+133 
+134     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayAreas</span>(ArrayList&lt;Triangle&gt; triangles) 
+135     {
+136         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span> + <span class="string">&quot;</span><span class="string">The Areas</span><span class="string">&quot;</span>);
+137         
+138         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; triangles.size(); i++)
+139         {
+140             System.<span class="ST4">out</span>.println(triangles.get(i).area());
+141             
+142         }<span class="comment">//END FOR</span>
+143         
+144     }<span class="comment">//END displayAreas</span>
+145 
+146 }<span class="comment">//END ArrayListPlay</span>
+147 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

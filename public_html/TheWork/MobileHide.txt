@@ -1,0 +1,9 @@
+  <style type="text/css">
+  .mobileHidden {display: none;}
+  @media only screen 
+  AND (max-width: 736px) {}
+</style>
+
+
+
+  <div class="mobileHidden">

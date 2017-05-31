@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Tree Tester</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="Tree_Exception.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="Tree_ADT.html">Interface</a></li>
+    <li class="waves-effect"><a href="Tree_Class.html">Class</a></li>
+    <li class="waves-effect"><a href="Tree_Exception.html">Exception</a></li>
+    <li class="active yellow darken-2"><a href="#!">Tester</a></li>
+    <li class="waves-effect"><a href="Tree_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Tree_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Tree Tester</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * This main method class tests the binary tree class</span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> trees;
+  5 
+  6 <span class="literal">import</span> trees.BinaryTreeCreationException;
+  7 <span class="literal">import</span> trees.BinaryTree;
+  8 <span class="comment">/**</span>
+  9 <span class="comment"> *</span>
+ 10 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 11  <span class="comment">*/</span>
+ 12 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">BinaryTreeTester</span> 
+ 13 {
+ 14 
+ 15     <span class="comment">/**</span>
+ 16 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 17      <span class="comment">*/</span>
+ 18     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) <span class="literal">throws</span> BinaryTreeCreationException
+ 19     {
+ 20         <span class="ST3">testLR</span>(); <span class="comment">//test deterministic insertion +</span>
+ 21         <span class="ST3">testST</span>(); <span class="comment">//test bst insertion +</span>
+ 22         <span class="ST3">testND</span>(); <span class="comment">//test nondeterministic insertion +</span>
+ 23         <span class="ST3">testND</span>(); <span class="comment">//test nondeterministic insertion +</span>
+ 24     }<span class="comment">//END MAIN</span>
+ 25 
+ 26     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testLR</span>() 
+ 27     {
+ 28         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test LR ...</span><span class="string">&quot;</span>);
+ 29         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+ 30         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+ 31         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the tree directionally ...</span><span class="string">&quot;</span>);
+ 32         <span class="literal">try</span>
+ 33         {
+ 34             t.addLR(<span class="string">&quot;</span><span class="string">lion</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;&quot;</span>);
+ 35             t.addLR(<span class="string">&quot;</span><span class="string">shark</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">r</span><span class="string">&quot;</span>);
+ 36             t.addLR(<span class="string">&quot;</span><span class="string">elephant</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">l</span><span class="string">&quot;</span>);
+ 37             t.addLR(<span class="string">&quot;</span><span class="string">zebra</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">rr</span><span class="string">&quot;</span>);
+ 38             t.addLR(<span class="string">&quot;</span><span class="string">alligator</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">ll</span><span class="string">&quot;</span>);
+ 39             t.addLR(<span class="string">&quot;</span><span class="string">ardvaark</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">llr</span><span class="string">&quot;</span>);
+ 40             t.addLR(<span class="string">&quot;</span><span class="string">tiger</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">rrl</span><span class="string">&quot;</span>);
+ 41             t.addLR(<span class="string">&quot;</span><span class="string">giraffe</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">lr</span><span class="string">&quot;</span>);
+ 42             t.addLR(<span class="string">&quot;</span><span class="string">bear</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">llrr</span><span class="string">&quot;</span>);
+ 43             t.addLR(<span class="string">&quot;</span><span class="string">snake</span><span class="string">&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;</span><span class="string">rrll</span><span class="string">&quot;</span>);
+ 44         }
+ 45         <span class="literal">catch</span> (BinaryTreeCreationException ex)
+ 46         {
+ 47             ex.printStackTrace();
+ 48         }
+ 49         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+ 50         t.preorder();
+ 51         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+ 52         t.inorder();
+ 53         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+ 54         t.postorder();
+ 55         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+ 56         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 57     }<span class="comment">//END testLR</span>
+ 58 
+ 59     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testST</span>() <span class="literal">throws</span> BinaryTreeCreationException
+ 60     {
+ 61         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test ST ... </span><span class="string">&quot;</span>);
+ 62         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+ 63         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+ 64         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the binary search tree ...</span><span class="string">&quot;</span>);
+ 65         t.addST(<span class="string">&quot;</span><span class="string">Lion</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 66         t.addST(<span class="string">&quot;</span><span class="string">shark</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 67         t.addST(<span class="string">&quot;</span><span class="string">elephant</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 68         t.addST(<span class="string">&quot;</span><span class="string">zebra</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 69         t.addST(<span class="string">&quot;</span><span class="string">alligator</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 70         t.addST(<span class="string">&quot;</span><span class="string">ardvaark</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 71         t.addST(<span class="string">&quot;</span><span class="string">tiger</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 72         t.addST(<span class="string">&quot;</span><span class="string">giraffe</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 73         t.addST(<span class="string">&quot;</span><span class="string">bear</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 74         t.addST(<span class="string">&quot;</span><span class="string">snake</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 75         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+ 76         t.preorder();
+ 77         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+ 78         t.inorder();
+ 79         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+ 80         t.postorder();
+ 81         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+ 82         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 83     }<span class="comment">//END testST</span>
+ 84 
+ 85     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">testND</span>() 
+ 86     {
+ 87         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Test ND ...</span><span class="string">&quot;</span>);
+ 88         BinaryTree&lt;String, String&gt; t = <span class="literal">new</span> BinaryTree&lt;String, String&gt;();
+ 89         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Creating empty tree.</span><span class="string">&quot;</span>);
+ 90         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; Adding elements to the tree nondetermistaically ...</span><span class="string">&quot;</span>);
+ 91         t.addND(<span class="string">&quot;</span><span class="string">lion</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 92         t.addND(<span class="string">&quot;</span><span class="string">shark</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 93         t.addND(<span class="string">&quot;</span><span class="string">elephant</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 94         t.addND(<span class="string">&quot;</span><span class="string">zebra</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 95         t.addND(<span class="string">&quot;</span><span class="string">alligator</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 96         t.addND(<span class="string">&quot;</span><span class="string">ardvaark</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 97         t.addND(<span class="string">&quot;</span><span class="string">tiger</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 98         t.addND(<span class="string">&quot;</span><span class="string">giraffe</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+ 99         t.addND(<span class="string">&quot;</span><span class="string">bear</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+100         t.addND(<span class="string">&quot;</span><span class="string">snake</span><span class="string">&quot;</span>, <span class="literal">null</span>);
+101         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; PREORDER</span><span class="string">&quot;</span>);
+102         t.preorder();
+103         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; INORDER</span><span class="string">&quot;</span>);
+104         t.inorder();
+105         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; POSTORDER</span><span class="string">&quot;</span>);
+106         t.postorder();
+107         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; HEIGHT = </span><span class="string">&quot;</span> + t.height());
+108         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+109     }<span class="comment">//END testND</span>
+110     
+111 }<span class="comment">//END BinaryTreeTester</span>
+112 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

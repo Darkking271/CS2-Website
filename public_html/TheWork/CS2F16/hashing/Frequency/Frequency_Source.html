@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Frequency Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Hash"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active orange darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="Frequency_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Frequency_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center orange-text text-darken-2">Frequency Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * This program is the same as the frequency class, but it uses a hash table</span>
+  3 <span class="comment"> * than a binary tree.</span>
+  4 <span class="comment"> */</span>
+  5 <span class="literal">package</span> TextProcessing;
+  6 
+  7 <span class="literal">import</span> java.util.HashMap;
+  8 <span class="literal">import</span> java.util.TreeSet;
+  9 <span class="literal">import</span> java.io.File;
+ 10 <span class="literal">import</span> java.io.FileNotFoundException;
+ 11 <span class="literal">import</span> javax.swing.JFileChooser;
+ 12 <span class="literal">import</span> java.util.ArrayList;
+ 13 <span class="literal">import</span> java.util.Scanner;
+ 14 
+ 15 <span class="comment">/**</span>
+ 16 <span class="comment"> *</span>
+ 17 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 18  <span class="comment">*/</span>
+ 19 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">HashFrequencyCounter</span> 
+ 20 {  
+ 21     <span class="literal">static</span> HashMap&lt;String, Integer&gt; <span class="ST2">wordFreq</span> = <span class="literal">new</span> HashMap&lt;&gt;();
+ 22     <span class="literal">static</span> Scanner <span class="ST2">keyboard</span> = <span class="literal">new</span> Scanner(System.<span class="ST2">in</span>);
+ 23     
+ 24     <span class="comment">/**</span>
+ 25 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 26 <span class="comment">     * </span><span class="ST0">@throws</span> <span class="comment">java</span><span class="comment">.</span><span class="comment">io</span><span class="comment">.</span><span class="comment">FileNotFoundException</span>
+ 27      <span class="comment">*/</span>
+ 28     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">main</span>(String[] args) 
+ 29     <span class="literal">throws</span> FileNotFoundException 
+ 30     {
+ 31         <span class="ST4">establishFrequencyCounts</span>();
+ 32         <span class="ST4">dump</span>();
+ 33         <span class="ST4">interpret</span>();
+ 34     }<span class="comment">//END MAIN</span>
+ 35 
+ 36     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">establishFrequencyCounts</span>() 
+ 37     <span class="literal">throws</span> FileNotFoundException 
+ 38     {
+ 39         ArrayList&lt;String&gt; words = <span class="ST4">getFile</span>();
+ 40         <span class="ST4">populateTable</span>(words);
+ 41     }<span class="comment">//END establishFrequencyCounts</span>
+ 42 
+ 43     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST3">getFile</span>() 
+ 44     <span class="literal">throws</span> FileNotFoundException
+ 45     {
+ 46         String homedir = <span class="string">&quot;</span><span class="string">C:/Users/Alex/Documents/School/2016 Fall/CSC-241/CS2F16/Text Documents</span><span class="string">&quot;</span>;
+ 47         JFileChooser jfc = <span class="literal">new</span> JFileChooser(<span class="literal">new</span> File(homedir));
+ 48         jfc.showOpenDialog(<span class="literal">null</span>);
+ 49         File file = jfc.getSelectedFile();
+ 50         Scanner scanner = <span class="literal">new</span> Scanner(file);
+ 51         ArrayList&lt;String&gt; words = <span class="ST4">getWords</span>(scanner);
+ 52         <span class="literal">return</span> words;
+ 53     }<span class="comment">//END getFileText</span>
+ 54 
+ 55     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST3">getWords</span>(Scanner scanner) 
+ 56     {
+ 57         ArrayList&lt;String&gt; words = <span class="literal">new</span> ArrayList&lt;&gt;();
+ 58         <span class="literal">while</span> (scanner.hasNext())
+ 59         {
+ 60             words.add(scanner.next().toLowerCase());
+ 61         }
+ 62         <span class="literal">return</span> words;
+ 63     }<span class="comment">//END getWords</span>
+ 64 
+ 65     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">populateTable</span>(ArrayList&lt;String&gt; words) 
+ 66     {
+ 67         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; words.size(); i++)
+ 68         {
+ 69             <span class="literal">if</span> (<span class="ST2">wordFreq</span>.containsKey(words.get(i)))
+ 70                 <span class="ST2">wordFreq</span>.put(words.get(i), <span class="ST2">wordFreq</span>.get(words.get(i)) + 1);
+ 71             <span class="literal">else</span>
+ 72                 <span class="ST2">wordFreq</span>.put(words.get(i), 1);
+ 73         }
+ 74     }<span class="comment">//END populateTable</span>
+ 75 
+ 76     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">dump</span>() 
+ 77     {
+ 78         System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">The Words:</span><span class="string">&quot;</span>);
+ 79         <span class="literal">for</span> (String key: <span class="ST2">wordFreq</span>.keySet())
+ 80             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">&lt;</span><span class="string">&quot;</span> + key + <span class="string">&quot;</span><span class="string">: </span><span class="string">&quot;</span> + <span class="ST2">wordFreq</span>.get(key) + <span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>);
+ 81     }<span class="comment">//END dump</span>
+ 82 
+ 83     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">interpret</span>() 
+ 84     {
+ 85         String option;
+ 86         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; </span><span class="string">&quot;</span>);
+ 87         option = <span class="ST2">keyboard</span>.nextLine();
+ 88         <span class="literal">while</span> (!option.toLowerCase().equals(<span class="string">&quot;</span><span class="string">exit</span><span class="string">&quot;</span>))
+ 89         {
+ 90             <span class="literal">switch</span> (option.toLowerCase())
+ 91             {
+ 92                 <span class="literal">case</span> <span class="string">&quot;</span><span class="string">count</span><span class="string">&quot;</span>:
+ 93                     <span class="ST4">wordCount</span>();
+ 94                     <span class="literal">break</span>;
+ 95                 <span class="literal">case</span> <span class="string">&quot;</span><span class="string">print</span><span class="string">&quot;</span>:
+ 96                     <span class="ST4">wordPrint</span>();
+ 97                     <span class="literal">break</span>;
+ 98             }<span class="comment">//END SWITCHcoun</span>
+ 99             System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">&gt;&gt;&gt; </span><span class="string">&quot;</span>);
+100             option = <span class="ST2">keyboard</span>.nextLine();
+101         }<span class="comment">//END WHILE</span>
+102     }<span class="comment">//END interpret</span>
+103 
+104     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">wordCount</span>() 
+105     {
+106         System.<span class="ST2">out</span>.print(<span class="string">&quot;</span><span class="string">Word?   </span><span class="string">&quot;</span>);
+107         String word = <span class="ST2">keyboard</span>.nextLine();
+108         <span class="literal">if</span> (<span class="ST2">wordFreq</span>.containsKey(word))
+109         {
+110             <span class="literal">int</span> num = <span class="ST2">wordFreq</span>.get(word);
+111             System.<span class="ST2">out</span>.println(num);
+112         }
+113         <span class="literal">else</span>
+114             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">Word not found!</span><span class="string">&quot;</span>);
+115     }<span class="comment">//END wordStringCount</span>
+116 
+117     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST3">wordPrint</span>() 
+118     {
+119         TreeSet&lt;String&gt; wordSet = <span class="literal">new</span> TreeSet&lt;&gt;();
+120         <span class="literal">for</span> (String key: <span class="ST2">wordFreq</span>.keySet())
+121             wordSet.add(key);
+122         <span class="literal">for</span> (String s: wordSet)
+123             System.<span class="ST2">out</span>.println(<span class="string">&quot;</span><span class="string">&lt;</span><span class="string">&quot;</span> + s + <span class="string">&quot;</span><span class="string">: </span><span class="string">&quot;</span> + <span class="ST2">wordFreq</span>.get(s) + <span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>);
+124     }<span class="comment">//END wordPrint</span>
+125 }
+126 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

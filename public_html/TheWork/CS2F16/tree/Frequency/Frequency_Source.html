@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Frequency Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active yellow darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="Frequency_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Frequency_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Frequency Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * This program takes a word file, and counts the frequency of each word</span>
+ 3 <span class="comment"> */</span>
+ 4 <span class="literal">package</span> TextProcessing;
+ 5 
+ 6 <span class="literal">import</span> java.io.File;
+ 7 <span class="literal">import</span> java.io.FileNotFoundException;
+ 8 <span class="literal">import</span> java.util.Scanner;
+ 9 <span class="literal">import</span> javax.swing.JFileChooser;
+10 <span class="literal">import</span> java.util.ArrayList;
+11 <span class="literal">import</span> trees.BinaryTree;
+12 <span class="literal">import</span> trees.BinaryTreeCreationException;
+13 
+14 <span class="comment">/**</span>
+15 <span class="comment"> *</span>
+16 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+17  <span class="comment">*/</span>
+18 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">TreeFrequencyCounter</span> 
+19 {
+20 
+21     <span class="comment">/**</span>
+22 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+23 <span class="comment">     * </span><span class="ST0">@throws</span> <span class="comment">java</span><span class="comment">.</span><span class="comment">io</span><span class="comment">.</span><span class="comment">FileNotFoundException</span>
+24 <span class="comment">     * </span><span class="ST0">@throws</span> <span class="comment">trees</span><span class="comment">.</span><span class="comment">BinaryTreeCreationException</span>
+25      <span class="comment">*/</span>
+26     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+27     <span class="literal">throws</span> FileNotFoundException, BinaryTreeCreationException 
+28     {
+29         ArrayList&lt;String&gt; words = <span class="ST3">getFileWords</span>();
+30         BinaryTree&lt;String, Integer&gt; tree = <span class="ST3">createTree</span>(words);
+31         tree.inorder();
+32     }<span class="comment">//END MAIN</span>
+33 
+34     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">getFileWords</span>() 
+35     <span class="literal">throws</span> FileNotFoundException
+36     {
+37         String homedir = <span class="string">&quot;</span><span class="string">C:/Users/Alex/Documents/School/2016 Fall/CSC-241/CS2F16/Text Documents</span><span class="string">&quot;</span>;
+38         JFileChooser jfc = <span class="literal">new</span> JFileChooser(<span class="literal">new</span> File(homedir));
+39         jfc.showOpenDialog(<span class="literal">null</span>);
+40         File file = jfc.getSelectedFile();
+41         Scanner scanner = <span class="literal">new</span> Scanner(file);
+42         ArrayList&lt;String&gt; words = <span class="ST3">getWords</span>(scanner);
+43         <span class="literal">return</span> words;
+44     }<span class="comment">//END getFileText</span>
+45 
+46     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">getWords</span>(Scanner scanner) 
+47     {
+48         ArrayList&lt;String&gt; words = <span class="literal">new</span> ArrayList&lt;&gt;();
+49         <span class="literal">while</span> (scanner.hasNext())
+50         {
+51             words.add(scanner.next().toLowerCase());
+52         }
+53         <span class="literal">return</span> words;
+54     }<span class="comment">//END copy</span>
+55 
+56     <span class="literal">private</span> <span class="literal">static</span> BinaryTree&lt;String, Integer&gt; <span class="ST2">createTree</span>(ArrayList&lt;String&gt; words) 
+57     <span class="literal">throws</span> BinaryTreeCreationException 
+58     {
+59         BinaryTree&lt;String, Integer&gt; tree = <span class="literal">new</span> BinaryTree&lt;&gt;();
+60         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; words.size(); i++)
+61         {
+62             <span class="literal">if</span> (tree.member(words.get(i)))
+63             {
+64                 BinaryTree&lt;String, Integer&gt; node = tree.find(words.get(i));
+65                 node.setValue(node.value() + 1);
+66             }
+67             <span class="literal">else</span>
+68                 tree.addST(words.get(i),1);
+69         }
+70         <span class="literal">return</span> tree;
+71     }
+72     
+73 }
+74 
+</pre></body>
+</html>
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

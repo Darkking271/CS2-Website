@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Color Tree Demo</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Tree"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="ColorTree_Source.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="ColorTree_Source.html">Source</a></li>
+    <li class="active yellow darken-2"><a href="#!">Demo</a></li>
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center yellow-text text-darken-2">Color Tree Demo</h1>
+
+
+  <div class="container">
+    <div class="section">
+	
+<div class="card white">
+  <pre>
+ <span class="grey-text">run:</span>
+ Test LR ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree directionally ...
+ >>> PREORDER
+ [Red:---]
+ [Blue:---]
+ [Black:---]
+ [Aqua:---]
+ [Green:---]
+ [Ghostwhite:---]
+ [Brown:---]
+ [Gainsboro:---]
+ [Gray:---]
+ [Purple:---]
+ [Orange:---]
+ [Indigo:---]
+ [Pink:---]
+ [White:---]
+ [Tangerine:---]
+ [Yellow:---]
+ >>> INORDER
+ [Aqua:---]
+ [Black:---]
+ [Blue:---]
+ [Brown:---]
+ [Gainsboro:---]
+ [Ghostwhite:---]
+ [Gray:---]
+ [Green:---]
+ [Indigo:---]
+ [Orange:---]
+ [Pink:---]
+ [Purple:---]
+ [Red:---]
+ [Tangerine:---]
+ [White:---]
+ [Yellow:---]
+ >>> POSTORDER
+ [Aqua:---]
+ [Black:---]
+ [Gainsboro:---]
+ [Brown:---]
+ [Gray:---]
+ [Ghostwhite:---]
+ [Indigo:---]
+ [Pink:---]
+ [Orange:---]
+ [Purple:---]
+ [Green:---]
+ [Blue:---]
+ [Tangerine:---]
+ [Yellow:---]
+ [White:---]
+ [Red:---]
+ >>> HEIGHT = 6
+
+
+ Test ST ... 
+ >>> Creating empty tree.
+ >>> Adding elements to the binary search tree ...
+ >>> PREORDER
+ [Red:---]
+ [Blue:---]
+ [Black:---]
+ [Aqua:---]
+ [Green:---]
+ [Ghostwhite:---]
+ [Brown:---]
+ [Gainsboro:---]
+ [Gray:---]
+ [Purple:---]
+ [Orange:---]
+ [Indigo:---]
+ [Pink:---]
+ [White:---]
+ [Tangerine:---]
+ [Yellow:---]
+ >>> INORDER
+ [Aqua:---]
+ [Black:---]
+ [Blue:---]
+ [Brown:---]
+ [Gainsboro:---]
+ [Ghostwhite:---]
+ [Gray:---]
+ [Green:---]
+ [Indigo:---]
+ [Orange:---]
+ [Pink:---]
+ [Purple:---]
+ [Red:---]
+ [Tangerine:---]
+ [White:---]
+ [Yellow:---]
+ >>> POSTORDER
+ [Aqua:---]
+ [Black:---]
+ [Gainsboro:---]
+ [Brown:---]
+ [Gray:---]
+ [Ghostwhite:---]
+ [Indigo:---]
+ [Pink:---]
+ [Orange:---]
+ [Purple:---]
+ [Green:---]
+ [Blue:---]
+ [Tangerine:---]
+ [Yellow:---]
+ [White:---]
+ [Red:---]
+ >>> HEIGHT = 6
+
+
+ Test ND ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree nondetermistaically ...
+ >>> PREORDER
+ [Red:---]
+ [Blue:---]
+ [Purple:---]
+ [Yellow:---]
+ [Ghostwhite:---]
+ [Green:---]
+ [Pink:---]
+ [Gray:---]
+ [Black:---]
+ [White:---]
+ [Tangerine:---]
+ [Orange:---]
+ [Brown:---]
+ [Indigo:---]
+ [Aqua:---]
+ [Gainsboro:---]
+ >>> INORDER
+ [Purple:---]
+ [Yellow:---]
+ [Ghostwhite:---]
+ [Blue:---]
+ [Pink:---]
+ [Gray:---]
+ [Green:---]
+ [White:---]
+ [Black:---]
+ [Tangerine:---]
+ [Red:---]
+ [Brown:---]
+ [Orange:---]
+ [Indigo:---]
+ [Aqua:---]
+ [Gainsboro:---]
+ >>> POSTORDER
+ [Ghostwhite:---]
+ [Yellow:---]
+ [Purple:---]
+ [Gray:---]
+ [Pink:---]
+ [White:---]
+ [Tangerine:---]
+ [Black:---]
+ [Green:---]
+ [Blue:---]
+ [Brown:---]
+ [Gainsboro:---]
+ [Aqua:---]
+ [Indigo:---]
+ [Orange:---]
+ [Red:---]
+ >>> HEIGHT = 5
+
+
+ Test ND ...
+ >>> Creating empty tree.
+ >>> Adding elements to the tree nondetermistaically ...
+ >>> PREORDER
+ [Red:---]
+ [Purple:---]
+ [Orange:---]
+ [Ghostwhite:---]
+ [Brown:---]
+ [Pink:---]
+ [Gray:---]
+ [Blue:---]
+ [Black:---]
+ [Indigo:---]
+ [Tangerine:---]
+ [Green:---]
+ [White:---]
+ [Gainsboro:---]
+ [Yellow:---]
+ [Aqua:---]
+ >>> INORDER
+ [Brown:---]
+ [Ghostwhite:---]
+ [Orange:---]
+ [Pink:---]
+ [Gray:---]
+ [Purple:---]
+ [Red:---]
+ [Black:---]
+ [Tangerine:---]
+ [Indigo:---]
+ [Blue:---]
+ [Gainsboro:---]
+ [White:---]
+ [Green:---]
+ [Yellow:---]
+ [Aqua:---]
+ >>> POSTORDER
+ [Brown:---]
+ [Ghostwhite:---]
+ [Gray:---]
+ [Pink:---]
+ [Orange:---]
+ [Purple:---]
+ [Tangerine:---]
+ [Indigo:---]
+ [Black:---]
+ [Gainsboro:---]
+ [White:---]
+ [Aqua:---]
+ [Yellow:---]
+ [Green:---]
+ [Blue:---]
+ [Red:---]
+ >>> HEIGHT = 5
+
+
+ <span class="light-green-text">BUILD SUCCESSFUL (total time: 1 seconds)</span>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

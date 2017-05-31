@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Longest Word Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Review"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active blue darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="LongestWord_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="LongestWord_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center blue-text text darken-2">Longest Word Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * The program is to prompt the user for a punctuation</span>
+ 3 <span class="comment"> * free sentence with a single longest word and the print</span>
+ 4 <span class="comment"> * the longest word.</span>
+ 5 <span class="comment"> */</span>
+ 6 <span class="literal">package</span> Review;
+ 7 
+ 8 <span class="literal">import</span> java.util.Scanner;
+ 9 
+10 <span class="comment">/**</span>
+11 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+12  <span class="comment">*/</span>
+13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">LongestWord</span> 
+14 {
+15 
+16     <span class="comment">/**</span>
+17 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+18      <span class="comment">*/</span>
+19     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+20     {
+21         <span class="comment">//Local Variables</span>
+22         Scanner Keyboard = <span class="literal">new</span> Scanner(System.<span class="ST3">in</span>);  <span class="comment">//Keyboard variable</span>
+23         String sent;                                <span class="comment">//User&#39;s input sentence</span>
+24         String word;                                <span class="comment">//Longest word</span>
+25         
+26         <span class="comment">/**</span><span class="comment">******** </span><span class="comment">Start</span> <span class="comment">Main</span> <span class="comment">Method</span><span class="comment"> *********</span><span class="comment">*/</span>
+27         
+28         <span class="comment">//Prompt use to input </span>
+29         System.<span class="ST3">out</span>.print(<span class="string">&quot;</span><span class="string">Enter a sentence:  </span><span class="string">&quot;</span>);
+30         sent = Keyboard.nextLine();
+31         
+32         <span class="comment">//Recieve the longest word</span>
+33         word = <span class="ST4">longest</span>(sent);
+34         
+35         <span class="comment">//Display the longest word</span>
+36         System.<span class="ST3">out</span>.println(word);
+37     
+38     }<span class="comment">//END main</span>
+39 
+40     <span class="literal">private</span> <span class="literal">static</span> String <span class="ST2">longest</span>(String sent) 
+41     {
+42         <span class="comment">//Local Variables</span>
+43         <span class="literal">int</span> maxLength = 0;                  <span class="comment">//Highest length of words</span>
+44         String[] word = sent.split(<span class="string">&quot;</span> <span class="string">&quot;</span>);    <span class="comment">//Words in user&#39;s sentence</span>
+45         String longWord = <span class="string">&quot;&quot;</span>;               <span class="comment">//Longest word</span>
+46         
+47         <span class="comment">/**</span><span class="comment">********</span><span class="comment">Start</span> <span class="comment">Method</span><span class="comment">*********</span><span class="comment">*/</span>
+48 
+49         <span class="comment">//For (every word in the sentence)</span>
+50         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; word.<span class="ST5">length</span>; i++)
+51         {
+52             <span class="comment">//IF (the word is longer than the longest word)</span>
+53             <span class="literal">if</span> (word[i].length() &gt; maxLength)
+54             {
+55                 <span class="comment">//Make the word the longest word</span>
+56                 maxLength = word[i].length();
+57                 
+58                 <span class="comment">//Set longest word length</span>
+59                 longWord = word[i];
+60             }<span class="comment">//End IF</span>
+61             
+62         }<span class="comment">// End FOR</span>
+63         
+64         <span class="comment">//Return longest word</span>
+65         <span class="literal">return</span> longWord;
+66     
+67     }<span class="comment">//END longest</span>
+68     
+69 }<span class="comment">//END LongestWord</span>
+70 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

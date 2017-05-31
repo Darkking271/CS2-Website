@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Name Interface</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Simple"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active green darken-2"><a href="#!">Interface</a></li>
+    <li class="waves-effect"><a href="Name_Class.html">Class</a></li>
+    <li class="waves-effect"><a href="Name_Tester.html">Tester</a></li>
+    <li class="waves-effect"><a href="Name_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Name_Class.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center green-text text-darken-2">Name Interface</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * Interface used for name program</span>
+ 3 <span class="comment"> */</span>
+ 4 <span class="literal">package</span> simplethings;
+ 5 
+ 6 <span class="comment">/**</span>
+ 7 <span class="comment"> *</span>
+ 8 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 9  <span class="comment">*/</span>
+10 <span class="literal">public</span> <span class="literal">interface</span> <span class="ST1">NameADT</span> 
+11 {
+12     <span class="literal">public</span> String <span class="ST1">first</span>();
+13     <span class="literal">public</span> String <span class="ST1">last</span>();
+14     <span class="literal">public</span> String <span class="ST1">natural</span>();
+15     <span class="literal">public</span> String <span class="ST1">formal</span>();
+16     <span class="literal">public</span> String <span class="ST1">toString</span>();
+17     <span class="literal">public</span> String <span class="ST1">initials</span>();
+18     <span class="literal">public</span> <span class="literal">boolean</span> <span class="ST1">check</span>(String fi, String li);
+19     
+20 }<span class="comment">//END NameADT</span>
+21 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

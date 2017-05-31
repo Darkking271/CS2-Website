@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>Triangle Class</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Simple"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="wave-effect"><a href="Triangle_ADT.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="Triangle_ADT.html">Interface</a></li>
+    <li class="active green darken-2"><a href="#!">Class</a></li>
+    <li class="waves-effect"><a href="Triangle_Tester.html">Tester</a></li>
+    <li class="waves-effect"><a href="Triangle_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Triangle_Tester.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center green-text text-darken-2">Triangle Class</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * Class to implement TriangleADT</span>
+ 3 <span class="comment"> */</span>
+ 4 <span class="literal">package</span> simplethings;
+ 5 
+ 6 <span class="comment">/**</span>
+ 7 <span class="comment"> *</span>
+ 8 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 9  <span class="comment">*/</span>
+10 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">Triangle</span> <span class="literal">implements</span> TriangleADT
+11 {
+12     <span class="literal">private</span> <span class="literal">double</span> <span class="ST2">sideOne</span>;
+13     <span class="literal">private</span> <span class="literal">double</span> <span class="ST2">sideTwo</span>;
+14     <span class="literal">private</span> <span class="literal">double</span> <span class="ST2">sideThree</span>;
+15     
+16     <span class="literal">public</span> <span class="ST1">Triangle</span>(<span class="literal">int</span> side1, <span class="literal">int</span> side2, <span class="literal">int</span> side3)
+17     {
+18         <span class="ST2">sideOne</span> = side1;
+19         <span class="ST2">sideTwo</span> = side2;
+20         <span class="ST2">sideThree</span> = side3;
+21         
+22     }<span class="comment">//END Triangle</span>
+23     
+24     <span class="literal">public</span> <span class="ST1">Triangle</span>(<span class="literal">int</span> sides)
+25     {
+26         <span class="ST2">sideOne</span> = sides;
+27         <span class="ST2">sideTwo</span> = sides;
+28         <span class="ST2">sideThree</span> = sides;
+29         
+30     }<span class="comment">//END Triangle Overloaded</span>
+31     
+32     @Override
+33     <span class="literal">public</span> String <span class="ST1">toString</span>()
+34     {
+35         String type = <span class="string">&quot;</span><span class="string">&lt;Triangle with A = </span><span class="string">&quot;</span> + <span class="ST2">sideOne</span> + 
+36                       <span class="string">&quot;</span><span class="string">, B = </span><span class="string">&quot;</span> + <span class="ST2">sideTwo</span> + 
+37                       <span class="string">&quot;</span><span class="string">, C = </span><span class="string">&quot;</span> + <span class="ST2">sideThree</span> + <span class="string">&quot;</span><span class="string">&gt;</span><span class="string">&quot;</span>;
+38         <span class="literal">return</span> type;
+39     }
+40     
+41     @Override
+42     <span class="literal">public</span> <span class="literal">double</span> <span class="ST1">perimeter</span>()
+43     {
+44         <span class="literal">double</span> perimeter = <span class="ST2">sideOne</span> + <span class="ST2">sideTwo</span> + <span class="ST2">sideThree</span>;
+45         <span class="literal">return</span> perimeter;
+46         
+47     }<span class="comment">//END perimeter</span>
+48     
+49     @Override
+50     <span class="literal">public</span> <span class="literal">double</span> <span class="ST1">area</span>()
+51     {
+52         <span class="literal">double</span> p = (<span class="ST2">sideOne</span> + <span class="ST2">sideTwo</span> + <span class="ST2">sideThree</span>) / 2;
+53         <span class="literal">double</span> area = Math.<span class="ST3">sqrt</span>(p * (p - <span class="ST2">sideOne</span>) * (p - <span class="ST2">sideTwo</span>) * (p - <span class="ST2">sideThree</span>));
+54         <span class="literal">return</span> area;
+55         
+56     }<span class="comment">//END area</span>
+57     
+58 }<span class="comment">//END Triangle Class</span>
+59 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>GUI3.java</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Monospaced}
+pre {color: #000000; background-color: #ffffff; font-family: Monospaced}
+table {color: #000000; background-color: #e9e8e2; font-family: Monospaced}
+.ST2 {font-family: Monospaced; font-weight: bold; font-style: italic}
+.ST3 {font-family: Monospaced; font-style: italic}
+.ST5 {color: #009900; font-family: Monospaced; font-style: italic}
+.ST0 {color: #969696; font-family: Monospaced; font-weight: bold}
+.ST1 {font-family: Monospaced; font-weight: bold}
+.comment {color: #969696}
+.ST4 {color: #009900}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/home/avoytovi/Desktop/CS2F16/src/gui/GUI3.java</td></tr></table>
+<pre>
+ 1 <span class="comment">/*</span>
+ 2 <span class="comment"> * GUI3 places some dead buttons in the frame using a FlowLayout manager.</span>
+ 3 <span class="comment"> */</span>
+ 4 <span class="literal">package</span> gui;
+ 5 
+ 6 <span class="literal">import</span> java.awt.Container;
+ 7 <span class="literal">import</span> java.awt.FlowLayout;
+ 8 <span class="literal">import</span> javax.swing.JButton;
+ 9 <span class="literal">import</span> javax.swing.JFrame;
+10 <span class="literal">import</span> javax.swing.JLabel;
+11 <span class="literal">import</span> javax.swing.SwingUtilities;
+12 
+13 <span class="comment">/**</span>
+14 <span class="comment"> *</span>
+15 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+16  <span class="comment">*/</span>
+17 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">GUI3</span> 
+18 {
+19 
+20     <span class="comment">/**</span>
+21 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+22      <span class="comment">*/</span>
+23     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+24     {
+25         SwingUtilities.<span class="ST3">invokeLater</span>(<span class="literal">new</span> ThreadForGUI());
+26     }
+27     
+28     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">class</span> <span class="ST2">ThreadForGUI</span> <span class="literal">implements</span> Runnable 
+29     {
+30         @Override
+31         <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">run</span>()
+32         {
+33             GUI3 gui = <span class="literal">new</span> GUI3();
+34         }
+35     }
+36     
+37     <span class="literal">public</span> <span class="ST1">GUI3</span>()
+38     {
+39         KFrame frame = <span class="literal">new</span> KFrame(<span class="string">&quot;</span><span class="string">GUI 3</span><span class="string">&quot;</span>);
+40     }
+41     
+42     <span class="comment">//modeling the featured frame of the GUI</span>
+43     
+44     <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">KFrame</span> <span class="literal">extends</span> JFrame
+45     {
+46         <span class="literal">private</span> JButton <span class="ST4">blueButton</span>;
+47         <span class="literal">private</span> JButton <span class="ST4">redButton</span>;
+48         <span class="literal">private</span> JButton <span class="ST4">greenButton</span>;
+49         <span class="literal">private</span> JButton <span class="ST4">yellowButton</span>;
+50         <span class="literal">private</span> JLabel <span class="ST4">colorLabel</span>;
+51         
+52         <span class="literal">public</span> <span class="ST1">KFrame</span>(String title)
+53         {
+54             <span class="literal">super</span>(title);
+55             setSize(500,300);
+56             setDefaultCloseOperation(JFrame.<span class="ST5">EXIT_ON_CLOSE</span>);
+57             addComponents(getContentPane());
+58             setVisible(<span class="literal">true</span>);
+59         }
+60         
+61         <span class="literal">private</span> <span class="literal">void</span> <span class="ST1">addComponents</span>(Container contentPane)
+62         {
+63             <span class="ST4">blueButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Blue</span><span class="string">&quot;</span>);
+64             <span class="ST4">redButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Red</span><span class="string">&quot;</span>);
+65             <span class="ST4">greenButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Green</span><span class="string">&quot;</span>);
+66             <span class="ST4">yellowButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Yellow</span><span class="string">&quot;</span>);
+67             <span class="ST4">colorLabel</span> = <span class="literal">new</span> JLabel(<span class="string">&quot;</span><span class="string">Press a button...</span><span class="string">&quot;</span>);
+68             contentPane.setLayout(<span class="literal">new</span> FlowLayout());
+69             contentPane.add(<span class="ST4">blueButton</span>);
+70             contentPane.add(<span class="ST4">redButton</span>);
+71             contentPane.add(<span class="ST4">greenButton</span>);
+72             contentPane.add(<span class="ST4">yellowButton</span>);
+73             contentPane.add(<span class="ST4">colorLabel</span>);
+74         }
+75     }
+76 }
+77 
+</pre></body>
+</html>
+

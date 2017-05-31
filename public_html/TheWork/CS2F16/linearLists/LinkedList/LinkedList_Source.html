@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>ArrayList Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#List"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active purple darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="LinkedList_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="LinkedList_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center purple-text text-darken-2">LinkedList Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * Unrefined linked list code that I refined</span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> linearlists;
+  5 
+  6 <span class="literal">import</span> java.util.LinkedList;
+  7 <span class="literal">import</span> java.text.DecimalFormat;
+  8 
+  9 <span class="comment">/**</span>
+ 10 <span class="comment"> *</span>
+ 11 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 12  <span class="comment">*/</span>
+ 13 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">LinkedListPlay</span> 
+ 14 {
+ 15 
+ 16     <span class="comment">/**</span>
+ 17 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 18      <span class="comment">*/</span>
+ 19     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) 
+ 20     {
+ 21         <span class="comment">//Part 1: creation of lists</span>
+ 22         
+ 23         LinkedList animals = <span class="ST3">createAnimalList</span>();
+ 24         <span class="ST3">displayAnimals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The Animal Names...</span><span class="string">&quot;</span>, animals);
+ 25         
+ 26         LinkedList reals = <span class="ST3">randomList</span>(77);
+ 27         <span class="ST3">displayReals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The Real Numbers...</span><span class="string">&quot;</span>, reals);
+ 28         
+ 29         <span class="comment">//Part 2: use of lists</span>
+ 30         
+ 31         LinkedList lengths = <span class="ST3">lengths</span>(animals);
+ 32         <span class="ST3">displayLengths</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The lengths of the animal names...</span><span class="string">&quot;</span>, lengths);
+ 33         
+ 34         LinkedList reverseAnimals = <span class="ST3">reverse</span>(animals);
+ 35         <span class="ST3">displayAnimals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The animals in reverse order...</span><span class="string">&quot;</span>, reverseAnimals);
+ 36         
+ 37         <span class="literal">double</span> minimum = <span class="ST3">minimum</span>(reals);
+ 38         System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The minimum number = </span><span class="string">&quot;</span> + minimum);
+ 39         <span class="ST3">displayReals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The real numbers...</span><span class="string">&quot;</span>, reals);
+ 40         
+ 41         LinkedList orderList = <span class="ST3">sort</span>(reals);
+ 42         <span class="ST3">displayReals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The real numbers in ascending order...</span><span class="string">&quot;</span>, orderList);
+ 43         <span class="ST3">displayReals</span>(<span class="string">&quot;</span><span class="ST4">\n</span><span class="string">The real numbers...</span><span class="string">&quot;</span>, reals);
+ 44     }<span class="comment">//END MAIN</span>
+ 45 
+ 46     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">createAnimalList</span>() 
+ 47     {
+ 48      LinkedList&lt;String&gt; animals = <span class="literal">new</span> LinkedList&lt;String&gt;();
+ 49      
+ 50      <span class="comment">//Predetermined Animals</span>
+ 51      animals.add(<span class="string">&quot;</span><span class="string">Aardvark</span><span class="string">&quot;</span>);
+ 52      animals.add(<span class="string">&quot;</span><span class="string">Bear</span><span class="string">&quot;</span>);
+ 53      animals.add(<span class="string">&quot;</span><span class="string">Crocodile</span><span class="string">&quot;</span>);
+ 54      animals.add(<span class="string">&quot;</span><span class="string">Dove</span><span class="string">&quot;</span>);
+ 55      animals.add(<span class="string">&quot;</span><span class="string">Elephant</span><span class="string">&quot;</span>);
+ 56      animals.add(<span class="string">&quot;</span><span class="string">Finch</span><span class="string">&quot;</span>);
+ 57      animals.add(<span class="string">&quot;</span><span class="string">Giraffe</span><span class="string">&quot;</span>);
+ 58      animals.add(<span class="string">&quot;</span><span class="string">Hyena</span><span class="string">&quot;</span>);
+ 59      animals.add(<span class="string">&quot;</span><span class="string">Iguana</span><span class="string">&quot;</span>);
+ 60      animals.add(<span class="string">&quot;</span><span class="string">Jackalope</span><span class="string">&quot;</span>);
+ 61      animals.add(<span class="string">&quot;</span><span class="string">Bat</span><span class="string">&quot;</span>);
+ 62      animals.add(<span class="string">&quot;</span><span class="string">Walrus</span><span class="string">&quot;</span>);
+ 63      animals.add(<span class="string">&quot;</span><span class="string">Lobster</span><span class="string">&quot;</span>);
+ 64      <span class="comment">//My Animals</span>
+ 65      animals.add(<span class="string">&quot;</span><span class="string">Lion</span><span class="string">&quot;</span>);
+ 66      animals.add(<span class="string">&quot;</span><span class="string">Tiger</span><span class="string">&quot;</span>);
+ 67      animals.add(<span class="string">&quot;</span><span class="string">Bison</span><span class="string">&quot;</span>);
+ 68      animals.add(<span class="string">&quot;</span><span class="string">Woodpecker</span><span class="string">&quot;</span>);
+ 69      animals.add(<span class="string">&quot;</span><span class="string">Panda</span><span class="string">&quot;</span>);
+ 70      animals.add(<span class="string">&quot;</span><span class="string">Ox</span><span class="string">&quot;</span>);
+ 71      animals.add(<span class="string">&quot;</span><span class="string">Yak</span><span class="string">&quot;</span>);
+ 72      animals.add(<span class="string">&quot;</span><span class="string">Bull</span><span class="string">&quot;</span>);
+ 73      animals.add(<span class="string">&quot;</span><span class="string">Elk</span><span class="string">&quot;</span>);
+ 74      animals.add(<span class="string">&quot;</span><span class="string">Fox</span><span class="string">&quot;</span>);
+ 75      
+ 76      <span class="literal">return</span> animals;
+ 77      
+ 78     }<span class="comment">//END createAnimalList</span>
+ 79 
+ 80     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">randomList</span>(<span class="literal">int</span> x) 
+ 81     {
+ 82         LinkedList&lt;Double&gt; reals = <span class="literal">new</span> LinkedList&lt;Double&gt;();
+ 83         DecimalFormat dec = <span class="literal">new</span> DecimalFormat(<span class="string">&quot;</span><span class="string">.#</span><span class="string">&quot;</span>);
+ 84         <span class="literal">int</span> i = 0;
+ 85         
+ 86         <span class="literal">while</span> (i &lt; x)
+ 87         {
+ 88             <span class="literal">double</span> num = (Math.<span class="ST3">random</span>() * 1000) / 10;
+ 89             
+ 90             Double number = <span class="literal">new</span> Double(dec.format(num));
+ 91             
+ 92             reals.addLast(number);
+ 93             
+ 94             i++;
+ 95             
+ 96         }<span class="comment">//END WHILE</span>
+ 97         
+ 98         <span class="literal">return</span> reals;
+ 99         
+100     }<span class="comment">//END randomList</span>
+101 
+102     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayAnimals</span>(String text, LinkedList&lt;String&gt; animals) 
+103     {
+104         <span class="ST3">display</span>(text, animals);
+105         
+106     }<span class="comment">//END displayAnimals</span>
+107 
+108     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayLengths</span>(String text, LinkedList&lt;Integer&gt; lengths) 
+109     {
+110         <span class="ST3">display</span>(text, lengths);
+111         
+112     }<span class="comment">//END displayLengths</span>
+113 
+114     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayReals</span>(String text, LinkedList items) 
+115     {
+116         <span class="ST3">display</span>(text, items);
+117         
+118     }<span class="comment">//END displayReals</span>
+119 
+120     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">lengths</span>(LinkedList&lt;String&gt; animals) 
+121     {
+122         LinkedList&lt;Integer&gt; lengths = <span class="literal">new</span> LinkedList&lt;Integer&gt;();
+123         
+124         <span class="literal">for</span> (String a : animals)
+125         {
+126             lengths.add(a.length());
+127             
+128         }<span class="comment">//END FOR</span>
+129         
+130         <span class="literal">return</span> lengths;
+131         
+132     }<span class="comment">//END lengths</span>
+133 
+134     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">reverse</span>(LinkedList&lt;String&gt; animals) 
+135     {
+136         LinkedList&lt;String&gt; reverseAnimals = <span class="literal">new</span> LinkedList&lt;String&gt;();
+137         
+138         <span class="literal">for</span> (<span class="literal">int</span> i = animals.size(); i &gt; 0; i--)
+139             
+140             reverseAnimals.add(animals.get(i - 1));
+141         
+142         <span class="comment">//END FOR</span>
+143         
+144         <span class="literal">return</span> reverseAnimals;
+145         
+146     }<span class="comment">//END reverse</span>
+147     
+148     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">double</span> <span class="ST2">minimum</span>(LinkedList&lt;Double&gt; reals) 
+149     {
+150         <span class="literal">double</span> minimum = 100;
+151         
+152         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; reals.size(); i++)
+153         {
+154             <span class="literal">if</span> (reals.get(i) &lt; minimum)
+155                 
+156                 minimum = reals.get(i);
+157             
+158         }<span class="comment">//END IF</span>
+159         
+160         <span class="literal">return</span> minimum;
+161             
+162     }<span class="comment">//END minimum</span>
+163 
+164     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">sort</span>(LinkedList&lt;Double&gt; reals) 
+165     {   
+166         LinkedList&lt;Double&gt; copy = <span class="literal">new</span> LinkedList&lt;Double&gt;(reals);
+167         
+168         <span class="literal">if</span> (copy.isEmpty())
+169             <span class="literal">return</span> copy;
+170         
+171         <span class="literal">double</span> min = <span class="ST3">minimum</span>(reals);
+172         copy.remove(min);
+173         copy = <span class="ST3">sort</span>(copy);
+174         copy.addFirst(min);
+175         <span class="literal">return</span> copy;
+176     }<span class="comment">//END sort</span>
+177     
+178     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">display</span>(String text, LinkedList items)
+179     {
+180         System.<span class="ST5">out</span>.print(text + <span class="string">&quot;</span><span class="ST4">\n</span><span class="string">&lt; </span><span class="string">&quot;</span>);
+181         
+182         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; items.size(); i++)
+183         {
+184             System.<span class="ST5">out</span>.print(items.get(i) + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+185             
+186             <span class="literal">if</span> ((i + 1) % 10 == 0)
+187                 
+188                 System.<span class="ST5">out</span>.println();
+189             
+190         }<span class="comment">//END FOR</span>
+191         
+192         System.<span class="ST5">out</span>.println(<span class="string">&quot;</span><span class="string"> &gt;</span><span class="string">&quot;</span>);
+193         
+194     }<span class="comment">//END display</span>
+195 
+196 }<span class="comment">//END LinkedListPlay</span>
+197 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

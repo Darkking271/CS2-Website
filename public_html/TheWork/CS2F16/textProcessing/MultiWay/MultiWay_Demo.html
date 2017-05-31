@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>MultiWay Sort Demo</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Text"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="MultiWay_Source.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="MultiWay_Source.html">Source</a></li>
+    <li class="active teal darken-2"><a href="#!">Demo</a></li>
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center teal-text text-darken-2">MultiWay Sort Demo</h1>
+
+
+  <div class="container">
+    <div class="section">
+	
+<div class="card white">
+  <pre>
+ <span class="grey-text">run:</span>
+ Initial Order:
+ eyes wide in this reverie but its all still dark 
+ as night im falling fast asleep black tides of my 
+ misery coming down upon my sight i drown into the 
+ deep is there but a ghost inside these bones come 
+ now my darling come now beloved my love it calls 
+ you am i just a ghost inside these bones walking 
+ as the dead hearts made of stone nightmares of my 
+ darkest fears all around crippled with fright im falling fast 
+ asleep come now my darling come now beloved my love 
+ it calls you come away my darling come now beloved 
+ my love remains for you im lost so long the 
+ spirits willing but the flesh is weak i hear your 
+ song my fears are chilling so i dare not speak 
+ for you my blood was spilled but i made my 
+ bed in hell in you i see no guilt but 
+ you know how far i fell oh may it wake 
+ you from your sleep am i just a ghost inside 
+ these bones walking as the dead hearts made of stone 
+ hasten up my feet so i may fly wash me 
+ now my god or i will die black tides of 
+ my misery coming down upon my sight come now my 
+ darling come now beloved my love it calls you come 
+ away my darling come now beloved my love remains for 
+ you im lost so long the spirits willing but the 
+ flesh is weak i hear your song my fears are 
+ chilling so i dare not speak though you know how 
+ far i fell youve saved my soul from hell 
+
+ Pass 1:
+ 0 vowels: [ my my my my my my my my my my 
+ my my my fly my my my my my my 
+ my my my ]
+ 1 vowels: [ in this but its all still dark as night im 
+ fast black of down sight i drown the is but 
+ a ghost now now it calls am i just a 
+ ghost as the of of all with fright im fast 
+ now now it calls now for im lost so long 
+ the but the flesh is i song so i not 
+ for was but i bed in hell in i no 
+ but know how far i fell oh may it from 
+ am i just a ghost as the of up so 
+ i may wash me now god or i will black 
+ of down sight now now it calls now for im 
+ lost so long the but the flesh is i song 
+ so i not know how far i fell from hell 
+ ]
+ 2 vowels: [ eyes wide falling tides misery coming upon into deep there 
+ these bones come darling come love you these bones walking 
+ dead hearts made stone darkest fears crippled falling come darling 
+ come love you come away darling come love you spirits 
+ willing weak hear your fears are chilling dare speak you 
+ blood spilled made you see guilt you wake you your 
+ sleep these bones walking dead hearts made stone hasten feet 
+ die tides misery coming upon come darling come love you 
+ come away darling come love you spirits willing weak hear 
+ your fears are chilling dare speak though you saved soul 
+ ]
+ 3 vowels: [ asleep inside beloved inside nightmares around asleep beloved beloved remains 
+ inside beloved beloved remains youve ]
+ 4 vowels: [ reverie ]
+
+ Words sorted by vowel count: 
+ my my my my my my my my my my 
+ my my my fly my my my my my my 
+ my my my in this but its all still dark 
+ as night im fast black of down sight i drown 
+ the is but a ghost now now it calls am 
+ i just a ghost as the of of all with 
+ fright im fast now now it calls now for im 
+ lost so long the but the flesh is i song 
+ so i not for was but i bed in hell 
+ in i no but know how far i fell oh 
+ may it from am i just a ghost as the 
+ of up so i may wash me now god or 
+ i will black of down sight now now it calls 
+ now for im lost so long the but the flesh 
+ is i song so i not know how far i 
+ fell from hell eyes wide falling tides misery coming upon 
+ into deep there these bones come darling come love you 
+ these bones walking dead hearts made stone darkest fears crippled 
+ falling come darling come love you come away darling come 
+ love you spirits willing weak hear your fears are chilling 
+ dare speak you blood spilled made you see guilt you 
+ wake you your sleep these bones walking dead hearts made 
+ stone hasten feet die tides misery coming upon come darling 
+ come love you come away darling come love you spirits 
+ willing weak hear your fears are chilling dare speak though 
+ you saved soul asleep inside beloved inside nightmares around asleep 
+ beloved beloved remains inside beloved beloved remains youve reverie  
+
+ Pass 2:
+ 1 letters: [ i a i a i i i i i i 
+ a i i i i i ]
+ 2 letters: [ my my my my my my my my my my 
+ my my my my my my my my my my 
+ my my in as im of is it am as 
+ of of im it im so is so in in 
+ no oh it am as of up so me or 
+ of it im so is so ]
+ 3 letters: [ fly but its all the but now now the all 
+ now now now for the but the not for was 
+ but bed but how far may the may now god 
+ now now now for the but the not how far 
+ you you you are you you see you you die 
+ you you are you ]
+ 4 letters: [ this dark fast down just with fast lost long song 
+ hell know fell from just wash will down lost long 
+ song know fell from hell eyes wide upon into deep 
+ come come love dead made come come love come away 
+ come love weak hear your dare made wake your dead 
+ made feet upon come come love come away come love 
+ weak hear your dare soul ]
+ 5 letters: [ still night black sight drown ghost calls ghost calls flesh 
+ ghost black sight calls flesh tides there these bones these 
+ bones stone fears fears speak blood guilt sleep these bones 
+ stone tides fears speak saved youve ]
+ 6 letters: [ fright misery coming hearts hearts hasten misery coming though asleep 
+ inside inside around asleep inside ]
+ 7 letters: [ falling darling walking darkest falling darling darling spirits willing spilled 
+ walking darling darling spirits willing beloved beloved beloved remains beloved 
+ beloved remains reverie ]
+ 8 letters: [ crippled chilling chilling ]
+ 9 letters: [ ]
+ 10 letters: [ nightmares ]
+
+ Words sorted by vowel count and letter count: 
+ i a i a i i i i i i 
+ a i i i i i my my my my 
+ my my my my my my my my my my 
+ my my my my my my my my in as 
+ im of is it am as of of im it 
+ im so is so in in no oh it am 
+ as of up so me or of it im so 
+ is so fly but its all the but now now 
+ the all now now now for the but the not 
+ for was but bed but how far may the may 
+ now god now now now for the but the not 
+ how far you you you are you you see you 
+ you die you you are you this dark fast down 
+ just with fast lost long song hell know fell from 
+ just wash will down lost long song know fell from 
+ hell eyes wide upon into deep come come love dead 
+ made come come love come away come love weak hear 
+ your dare made wake your dead made feet upon come 
+ come love come away come love weak hear your dare 
+ soul still night black sight drown ghost calls ghost calls 
+ flesh ghost black sight calls flesh tides there these bones 
+ these bones stone fears fears speak blood guilt sleep these 
+ bones stone tides fears speak saved youve fright misery coming 
+ hearts hearts hasten misery coming though asleep inside inside around 
+ asleep inside falling darling walking darkest falling darling darling spirits 
+ willing spilled walking darling darling spirits willing beloved beloved beloved 
+ remains beloved beloved remains reverie crippled chilling chilling nightmares 
+
+ <span class="light-green-text">BUILD SUCCESSFUL (total time: 6 seconds)</span>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

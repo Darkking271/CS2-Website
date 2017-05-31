@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>MultiWay Sort Source</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#Text"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active teal darken-2"><a href="#!">Source</a></li>
+    <li class="waves-effect"><a href="MultiWay_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="MultiWay_Demo.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center teal-text text-darken-2">MultiWay Sort Source</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * </span>
+  3 <span class="comment"> */</span>
+  4 <span class="literal">package</span> TextProcessing;
+  5 
+  6 <span class="literal">import</span> java.io.File;
+  7 <span class="literal">import</span> java.io.FileNotFoundException;
+  8 <span class="literal">import</span> java.util.Scanner;
+  9 <span class="literal">import</span> javax.swing.JFileChooser;
+ 10 <span class="literal">import</span> java.util.ArrayList;
+ 11 <span class="literal">import</span> java.util.LinkedList;
+ 12 <span class="literal">import</span> java.util.Queue;
+ 13 
+ 14 <span class="comment">/**</span>
+ 15 <span class="comment"> *</span>
+ 16 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 17  <span class="comment">*/</span>
+ 18 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">MultiWaySort</span> 
+ 19 {
+ 20 
+ 21     <span class="comment">/**</span>
+ 22 <span class="comment">     * </span><span class="ST0">@param</span> args <span class="comment">the</span> <span class="comment">command</span> <span class="comment">line</span> <span class="comment">arguments</span>
+ 23 <span class="comment">     * </span><span class="ST0">@throws</span> <span class="comment">java</span><span class="comment">.</span><span class="comment">lang</span><span class="comment">.</span><span class="comment">Exception</span>
+ 24      <span class="comment">*/</span>
+ 25     <span class="literal">public</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">main</span>(String[] args) <span class="literal">throws</span> Exception
+ 26     {
+ 27         ArrayList&lt;String&gt; words = <span class="ST3">initialOrder</span>();
+ 28         LinkedList&lt;String&gt; pass1 = <span class="ST3">pass1</span>(words);
+ 29         <span class="ST3">pass2</span>(pass1);
+ 30     }<span class="comment">//END MAIN</span>
+ 31 
+ 32     <span class="literal">private</span> <span class="literal">static</span> LinkedList <span class="ST2">pass1</span>(ArrayList&lt;String&gt; words) 
+ 33     {
+ 34         ArrayList&lt;Queue&gt; vowels = <span class="ST3">createEmptyVowelQueues</span>(words);
+ 35         vowels = <span class="ST3">sortVowels</span>(words, vowels);
+ 36         <span class="ST3">displayPass1</span>(vowels);
+ 37         System.<span class="ST4">out</span>.println();
+ 38         LinkedList&lt;String&gt; betweenPass = <span class="ST3">transferQueues</span>(vowels);
+ 39         <span class="ST3">displayList</span>(<span class="string">&quot;</span><span class="string">Words sorted by vowel count: </span><span class="string">&quot;</span>, betweenPass);
+ 40         <span class="literal">return</span> betweenPass;
+ 41     }<span class="comment">//END pass1</span>
+ 42 
+ 43     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">pass2</span>(LinkedList&lt;String&gt; pass1) 
+ 44     {
+ 45         ArrayList&lt;Queue&gt; letters = <span class="ST3">createEmptyLetterQueues</span>(pass1);
+ 46         letters = <span class="ST3">sortLetters</span>(pass1, letters);
+ 47         <span class="ST3">displayPass2</span>(letters);
+ 48         System.<span class="ST4">out</span>.println();
+ 49         LinkedList&lt;String&gt; finalPass = <span class="ST3">transferQueues</span>(letters);
+ 50         <span class="ST3">displayList</span>(<span class="string">&quot;</span><span class="string">Words sorted by vowel count and letter count: </span><span class="string">&quot;</span>, finalPass);
+ 51         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 52     }
+ 53 
+ 54     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">initialOrder</span>() <span class="literal">throws</span> Exception
+ 55     {
+ 56         ArrayList&lt;String&gt; words = <span class="ST3">getFile</span>();
+ 57         <span class="ST3">displayInitialOrder</span>(words);
+ 58         <span class="literal">return</span> words;
+ 59     }<span class="comment">//END initialOrder</span>
+ 60 
+ 61     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">getFile</span>() <span class="literal">throws</span> FileNotFoundException
+ 62     {
+ 63         String homedir = <span class="string">&quot;</span><span class="string">C:/Users/Alex/Documents/School/2016 Fall/CSC-241/CS2F16/Text Documents</span><span class="string">&quot;</span>;
+ 64         JFileChooser jfc = <span class="literal">new</span> JFileChooser(<span class="literal">new</span> File(homedir));
+ 65         jfc.showOpenDialog(<span class="literal">null</span>);
+ 66         File file = jfc.getSelectedFile();
+ 67         Scanner scanner = <span class="literal">new</span> Scanner(file);
+ 68         ArrayList&lt;String&gt; words = <span class="ST3">getWords</span>(scanner);
+ 69         <span class="literal">return</span> words;        
+ 70     }<span class="comment">//END getFile</span>
+ 71     
+ 72     <span class="literal">private</span> <span class="literal">static</span> ArrayList&lt;String&gt; <span class="ST2">getWords</span>(Scanner scanner) 
+ 73     {
+ 74         ArrayList&lt;String&gt; words = <span class="literal">new</span> ArrayList&lt;&gt;();
+ 75         <span class="literal">while</span> (scanner.hasNext())
+ 76         {
+ 77             words.add(scanner.next().toLowerCase());
+ 78         }
+ 79         <span class="literal">return</span> words;
+ 80     }<span class="comment">//END copy</span>
+ 81 
+ 82     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayInitialOrder</span>(ArrayList&lt;String&gt; words) 
+ 83     {
+ 84         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Initial Order:</span><span class="string">&quot;</span>);
+ 85         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; words.size(); i++)
+ 86         {
+ 87             System.<span class="ST4">out</span>.print(words.get(i) + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+ 88             <span class="literal">if</span> ((i + 1) % 10 == 0)
+ 89                 System.<span class="ST4">out</span>.println();
+ 90         }<span class="comment">//END FOR</span>
+ 91         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="string">&quot;</span>);
+ 92     }<span class="comment">//END displayInitialOrder</span>
+ 93 
+ 94     <span class="literal">private</span> <span class="literal">static</span> ArrayList <span class="ST2">createEmptyVowelQueues</span>(ArrayList&lt;String&gt; words) 
+ 95     {
+ 96         ArrayList&lt;Queue&gt; vowels = <span class="literal">new</span> ArrayList&lt;&gt;();
+ 97         Queue&lt;String&gt; queue;
+ 98         <span class="literal">int</span> highestVowelCount = <span class="ST3">highestVowelCount</span>(words);
+ 99         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; highestVowelCount + 1; i++)
+100         {
+101             queue = <span class="literal">new</span> LinkedList&lt;&gt;();
+102             vowels.add(queue);
+103         }<span class="comment">//END FOR</span>
+104         
+105         <span class="literal">return</span> vowels;
+106     }<span class="comment">//END createEmptyVowelQueues</span>
+107 
+108     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">highestVowelCount</span>(ArrayList&lt;String&gt; words) 
+109     {
+110         <span class="literal">int</span> most = 0;
+111         <span class="literal">int</span> vowel;
+112         <span class="literal">char</span> letter;
+113         
+114         <span class="literal">for</span> (String s: words)
+115         {
+116             vowel = 0;
+117             s = s.toLowerCase();
+118             <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; s.length(); i ++)
+119             {
+120                 letter = s.charAt(i);
+121                 <span class="literal">if</span> (<span class="ST3">testVowel</span>(letter))
+122                     vowel++;
+123             }<span class="comment">//END FOR</span>
+124             <span class="literal">if</span> (vowel &gt; most)
+125                 most = vowel;
+126         }<span class="comment">//END FOR</span>
+127         <span class="literal">return</span> most;
+128     }<span class="comment">//END highestVowelCount</span>
+129 
+130     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">boolean</span> <span class="ST2">testVowel</span>(<span class="literal">char</span> i) 
+131     {
+132         <span class="literal">boolean</span> check = <span class="literal">false</span>;
+133         <span class="literal">if</span> (i == <span class="string">&#39;</span><span class="string">a</span><span class="string">&#39;</span> || i == <span class="string">&#39;</span><span class="string">e</span><span class="string">&#39;</span> || i == <span class="string">&#39;</span><span class="string">i</span><span class="string">&#39;</span> || i == <span class="string">&#39;</span><span class="string">o</span><span class="string">&#39;</span> || i == <span class="string">&#39;</span><span class="string">u</span><span class="string">&#39;</span>)
+134             check = <span class="literal">true</span>;
+135         
+136         <span class="literal">return</span> check;
+137     }
+138 
+139     <span class="literal">private</span> <span class="literal">static</span> ArrayList <span class="ST2">sortVowels</span>(ArrayList&lt;String&gt; words, ArrayList&lt;Queue&gt; vowels) 
+140     {
+141         <span class="literal">for</span> (String s: words)
+142         {
+143             s = s.toLowerCase();
+144             <span class="literal">int</span> vowelCount = <span class="ST3">vowelCount</span>(s);
+145             vowels.get(vowelCount).add(s);
+146         }<span class="comment">//END FOR</span>
+147         
+148         <span class="literal">return</span> vowels;
+149     }<span class="comment">//END sortVowels</span>
+150 
+151     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">vowelCount</span>(String s) 
+152     {
+153         <span class="literal">int</span> vowelCount = 0;
+154         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; s.length(); i ++)
+155         {
+156             <span class="literal">char</span> letter = s.charAt(i);
+157             <span class="literal">if</span> (<span class="ST3">testVowel</span>(letter))
+158                 vowelCount++;
+159         }<span class="comment">//END FOR</span>
+160         
+161         <span class="literal">return</span> vowelCount;
+162     }
+163 
+164     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayPass1</span>(ArrayList&lt;Queue&gt; vowels) 
+165     {
+166         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">Pass 1:</span><span class="string">&quot;</span>);
+167         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; vowels.size(); i++)
+168         {
+169             System.<span class="ST4">out</span>.print(i + <span class="string">&quot;</span><span class="string"> vowels: [ </span><span class="string">&quot;</span>);
+170             Queue queue = vowels.get(i);
+171             <span class="ST3">displayQueue</span>(queue);
+172             System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">]</span><span class="string">&quot;</span>);
+173         }<span class="comment">//END FOR</span>
+174     }<span class="comment">//END displayPass1</span>
+175 
+176     <span class="literal">private</span> <span class="literal">static</span> ArrayList <span class="ST2">createEmptyLetterQueues</span>(LinkedList&lt;String&gt; pass1) 
+177     {
+178         ArrayList&lt;Queue&gt; letters = <span class="literal">new</span> ArrayList&lt;&gt;();
+179         Queue&lt;String&gt; queue;
+180         <span class="literal">int</span> highestLetterCount = <span class="ST3">highestLetterCount</span>(pass1);
+181         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; highestLetterCount; i++)
+182         {
+183             queue = <span class="literal">new</span> LinkedList&lt;&gt;();
+184             letters.add(queue);
+185         }<span class="comment">//END FOR</span>
+186         <span class="literal">return</span> letters;      
+187     }<span class="comment">//END createEmptyLetterQueues</span>
+188 
+189     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">int</span> <span class="ST2">highestLetterCount</span>(LinkedList&lt;String&gt; pass1) 
+190     {
+191         <span class="literal">int</span> most = 0;
+192         <span class="literal">int</span> letter;
+193         
+194         <span class="literal">for</span> (String s: pass1)
+195         {
+196             letter = s.length();
+197             <span class="literal">if</span> (letter &gt; most)
+198                 most = letter;
+199         }<span class="comment">//END FOR</span>
+200         <span class="literal">return</span> most;       
+201     }<span class="comment">//END highestLetterCount</span>
+202 
+203     <span class="literal">private</span> <span class="literal">static</span> ArrayList <span class="ST2">sortLetters</span>(LinkedList&lt;String&gt; pass1, ArrayList&lt;Queue&gt; letters) 
+204     {        
+205         <span class="literal">for</span> (String s: pass1)
+206         {
+207             s = s.toLowerCase();
+208             letters.get(s.length() - 1).add(s);
+209         }<span class="comment">//END FOR</span>
+210         
+211         <span class="literal">return</span> letters;
+212     }<span class="comment">//END sortLetters</span>
+213 
+214     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayPass2</span>(ArrayList&lt;Queue&gt; letters) 
+215     {
+216         System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="ST5">\n</span><span class="ST5">\n</span><span class="string">Pass 2:</span><span class="string">&quot;</span>);
+217         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; letters.size(); i++)
+218         {
+219             System.<span class="ST4">out</span>.print(i + 1 + <span class="string">&quot;</span><span class="string"> letters: [ </span><span class="string">&quot;</span>);
+220             Queue queue = letters.get(i);
+221             <span class="ST3">displayQueue</span>(queue);
+222             System.<span class="ST4">out</span>.println(<span class="string">&quot;</span><span class="string">]</span><span class="string">&quot;</span>);
+223         }<span class="comment">//END FOR        </span>
+224     }<span class="comment">//END displayPass2</span>
+225 
+226     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayQueue</span>(Queue queue) 
+227     {
+228         Queue copy = <span class="literal">new</span> LinkedList(queue);
+229         <span class="literal">int</span> size = copy.size();
+230         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; size; i++)
+231         {
+232             System.<span class="ST4">out</span>.print(copy.element() + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+233             copy.remove();
+234             <span class="literal">if</span> ((i + 1) % 10 == 0)
+235                 System.<span class="ST4">out</span>.println();
+236         }<span class="comment">//END FOR</span>
+237     }
+238 
+239     <span class="literal">private</span> <span class="literal">static</span> <span class="literal">void</span> <span class="ST2">displayList</span>(String text, LinkedList&lt;String&gt; betweenPass) 
+240     {
+241         System.<span class="ST4">out</span>.println(text);
+242         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; betweenPass.size(); i++)
+243         {
+244             System.<span class="ST4">out</span>.print(betweenPass.get(i) + <span class="string">&quot;</span> <span class="string">&quot;</span>);
+245             <span class="literal">if</span> ((i + 1) % 10 == 0)
+246                 System.<span class="ST4">out</span>.println();
+247         }<span class="comment">//END FOR</span>
+248     }<span class="comment">//END displayList</span>
+249 
+250     <span class="literal">private</span> <span class="literal">static</span> LinkedList&lt;String&gt; <span class="ST2">transferQueues</span>(ArrayList&lt;Queue&gt; words) 
+251     {
+252         LinkedList transferList = <span class="literal">new</span> LinkedList();
+253         Queue copy;
+254         <span class="literal">int</span> size;
+255         <span class="literal">for</span> (<span class="literal">int</span> i = 0; i &lt; words.size(); i++)
+256         {
+257             copy = <span class="literal">new</span> LinkedList(words.get(i));
+258             size = copy.size();
+259             <span class="literal">for</span> (<span class="literal">int</span> e = 0; e &lt; size; e++)
+260             {
+261                 transferList.add(copy.element());
+262                 copy.remove();
+263             }
+264         }<span class="comment">//END FOR</span>
+265         
+266         <span class="literal">return</span> transferList;
+267     }<span class="comment">//END betweenPas</span>
+268     
+269 }<span class="comment">//END MultiWaySort</span>
+270 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

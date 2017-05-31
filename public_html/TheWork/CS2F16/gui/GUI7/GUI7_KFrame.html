@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>GUI7 KFrame</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <style type="text/css">
+   .mobileShow { display: none;}
+   /* Smartphone Portrait and Landscape */
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+  </style>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: Roboto}
+pre {color: #000000; background-color: #ffffff; font-family: Roboto}
+table {color: #000000; background-color: #e9e8e2; font-family: Roboto}
+.ST0 {color: #969696; font-family: Roboto; font-weight: bold}
+.ST1 {font-family: Roboto; font-weight: bold}
+.comment {color: #969696}
+.ST5 {color: #009900}
+.ST2 {font-family: Roboto; font-weight: bold; font-style: italic}
+.ST3 {color: #009900; font-family: Roboto; font-style: italic}
+.ST4 {font-family: Roboto; font-style: italic}
+.literal {color: #0000e6}
+.string {color: #ce7b00}
+-->
+</style>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <ul class="left">
+		<li><a href="../../../../index.html#GUI"><i class="material-icons left">first_page</i>Back</a></li>
+	  </ul>
+    </div>
+  </nav>
+  <div class="center">
+  <ul class="pagination">
+    <li class="waves-effect"><a href="GUI7_Source.html"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="GUI7_Source.html">Source</a></li>
+    <li class="active red darken-2"><a href="#!">KFrame</a></li>
+    <li class="waves-effect"><a href="Random.html">Random</a></li>
+    <li class="waves-effect"><a href="GUI7_Demo.html">Demo</a></li>
+    <li class="waves-effect"><a href="Random.html"><i class="material-icons">chevron_right</i></a></li>
+  </ul>
+  </div>
+      <h1 class="header center red-text text-darken-2">GUI7 KFrame</h1>
+
+
+  <div class="container">
+    <div class="section">
+
+<div class="card white">
+	<pre>
+  1 <span class="comment">/*</span>
+  2 <span class="comment"> * Frame for the GUI7 program.</span>
+  3 <span class="comment"> */</span>
+  4 
+  5 <span class="literal">package</span> frames;
+  6 
+  7 <span class="literal">import</span> java.awt.BorderLayout;
+  8 <span class="literal">import</span> java.awt.Color;
+  9 <span class="literal">import</span> java.awt.Container;
+ 10 <span class="literal">import</span> java.awt.FlowLayout;
+ 11 <span class="literal">import</span> java.awt.event.ActionEvent;
+ 12 <span class="literal">import</span> java.awt.event.ActionListener;
+ 13 <span class="literal">import</span> javax.swing.JButton;
+ 14 <span class="literal">import</span> javax.swing.JFrame;
+ 15 <span class="literal">import</span> javax.swing.JPanel;
+ 16 <span class="literal">import</span> javax.swing.JTextField;
+ 17 <span class="literal">import</span> utilities.Random;
+ 18 <span class="comment">/**</span>
+ 19 <span class="comment"> *</span>
+ 20 <span class="comment"> * </span><span class="ST0">@author</span> <span class="comment">Alex</span>
+ 21  <span class="comment">*/</span>
+ 22     <span class="comment">//modeling the feature frame for the GUI</span>
+ 23 
+ 24 <span class="literal">public</span> <span class="literal">class</span> <span class="ST1">KFrame7</span> <span class="literal">extends</span> JFrame <span class="literal">implements</span> ActionListener
+ 25 {
+ 26     <span class="literal">private</span> JPanel <span class="ST2">reflector</span>;
+ 27     <span class="literal">private</span> JButton <span class="ST2">blueButton</span>;
+ 28     <span class="literal">private</span> JButton <span class="ST2">redButton</span>;
+ 29     <span class="literal">private</span> JButton <span class="ST2">greenButton</span>;
+ 30     <span class="literal">private</span> JButton <span class="ST2">yellowButton</span>;
+ 31     <span class="literal">private</span> JButton <span class="ST2">colorButton</span>;
+ 32     <span class="literal">private</span> JTextField <span class="ST2">input</span>;
+ 33     Random <span class="ST2">gen</span> = <span class="literal">new</span> Random();
+ 34     
+ 35     <span class="literal">public</span> <span class="ST1">KFrame7</span>(String title)
+ 36     {
+ 37         <span class="literal">super</span>(title);
+ 38         setSize(500, 300);
+ 39         setDefaultCloseOperation(JFrame.<span class="ST3">EXIT_ON_CLOSE</span>);
+ 40         addComponents(getContentPane());
+ 41         addListeners();
+ 42         setVisible(<span class="literal">true</span>);
+ 43         
+ 44     }<span class="comment">//END KFrame7</span>
+ 45     
+ 46     <span class="literal">private</span> <span class="literal">void</span> <span class="ST1">addComponents</span>(Container contentPane)
+ 47     {
+ 48         <span class="comment">//components for northern region</span>
+ 49         <span class="ST2">blueButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Blue</span><span class="string">&quot;</span>);
+ 50         <span class="ST2">redButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Red</span><span class="string">&quot;</span>);
+ 51         <span class="ST2">greenButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Green</span><span class="string">&quot;</span>);
+ 52         <span class="ST2">yellowButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Yellow</span><span class="string">&quot;</span>);
+ 53         <span class="ST2">colorButton</span> = <span class="literal">new</span> JButton(<span class="string">&quot;</span><span class="string">Color</span><span class="string">&quot;</span>);
+ 54         JPanel controlPanel = <span class="literal">new</span> JPanel();
+ 55         controlPanel.setLayout(<span class="literal">new</span> FlowLayout());
+ 56         controlPanel.add(<span class="ST2">blueButton</span>);
+ 57         controlPanel.add(<span class="ST2">redButton</span>);
+ 58         controlPanel.add(<span class="ST2">greenButton</span>);
+ 59         controlPanel.add(<span class="ST2">yellowButton</span>);
+ 60         controlPanel.add(<span class="ST2">colorButton</span>);
+ 61         
+ 62         <span class="comment">//components central region</span>
+ 63         <span class="ST2">reflector</span> = <span class="literal">new</span> JPanel();
+ 64         
+ 65         <span class="comment">//components for southern region</span>
+ 66         <span class="ST2">input</span> = <span class="literal">new</span> JTextField();
+ 67         
+ 68         <span class="comment">//establish the regions</span>
+ 69         contentPane.setLayout(<span class="literal">new</span> BorderLayout());
+ 70         contentPane.add(controlPanel, BorderLayout.<span class="ST3">NORTH</span>);
+ 71         contentPane.add(<span class="ST2">reflector</span>, BorderLayout.<span class="ST3">CENTER</span>);
+ 72         contentPane.add(<span class="ST2">input</span>, BorderLayout.<span class="ST3">SOUTH</span>);
+ 73         
+ 74     }<span class="comment">//END addComponents</span>
+ 75     
+ 76     <span class="comment">//Add the listeners to the frame.</span>
+ 77     <span class="literal">private</span> <span class="literal">void</span> <span class="ST1">addListeners</span>()
+ 78     {
+ 79         <span class="ST2">blueButton</span>.addActionListener(<span class="literal">this</span>);
+ 80         <span class="ST2">redButton</span>.addActionListener(<span class="literal">this</span>);
+ 81         <span class="ST2">greenButton</span>.addActionListener(<span class="literal">this</span>);
+ 82         <span class="ST2">yellowButton</span>.addActionListener(<span class="literal">this</span>);
+ 83         <span class="ST2">colorButton</span>.addActionListener(<span class="literal">this</span>);
+ 84         <span class="ST2">input</span>.addActionListener(<span class="literal">this</span>);
+ 85         
+ 86     }<span class="comment">//END addListeners</span>
+ 87     
+ 88     <span class="comment">//This method serves to implement the ActionListener interface</span>
+ 89     <span class="literal">public</span> <span class="literal">void</span> <span class="ST1">actionPerformed</span>(ActionEvent event)
+ 90     {
+ 91         String command = event.getActionCommand();
+ 92         <span class="literal">if</span> (event.getSource() <span class="literal">instanceof</span> JTextField)
+ 93             <span class="ST2">input</span>.setText(<span class="string">&quot;&quot;</span>);
+ 94         
+ 95         <span class="literal">switch</span>(event.getActionCommand().toUpperCase())
+ 96         {
+ 97             <span class="literal">case</span> <span class="string">&quot;</span><span class="string">RED</span><span class="string">&quot;</span>:
+ 98                 <span class="ST2">reflector</span>.setBackground(Color.<span class="ST3">RED</span>);
+ 99                 <span class="literal">break</span>;
+100             <span class="literal">case</span> <span class="string">&quot;</span><span class="string">YELLOW</span><span class="string">&quot;</span>:
+101                 <span class="ST2">reflector</span>.setBackground(Color.<span class="ST3">YELLOW</span>);
+102                 <span class="literal">break</span>;
+103             <span class="literal">case</span> <span class="string">&quot;</span><span class="string">BLUE</span><span class="string">&quot;</span>:
+104                 <span class="ST2">reflector</span>.setBackground(Color.<span class="ST3">BLUE</span>);
+105                 <span class="literal">break</span>;
+106             <span class="literal">case</span> <span class="string">&quot;</span><span class="string">GREEN</span><span class="string">&quot;</span>:
+107                 <span class="ST2">reflector</span>.setBackground(Color.<span class="ST3">GREEN</span>);
+108                 <span class="literal">break</span>;
+109             <span class="literal">case</span> <span class="string">&quot;</span><span class="string">COLOR</span><span class="string">&quot;</span>:
+110                 <span class="ST2">reflector</span>.setBackground(Random.<span class="ST4">color</span>());
+111                 <span class="literal">break</span>;
+112                 
+113         }<span class="comment">//END SWITCH</span>
+114         
+115     }<span class="comment">//END actionPerformed</span>
+116     
+117 }<span class="comment">//END KFrame7</span>
+118 
+</pre>
+</div>
+
+    </div>
+    <br><br>
+
+    <div class="section">
+
+    </div>
+  </div>
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
